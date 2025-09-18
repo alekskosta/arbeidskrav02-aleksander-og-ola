@@ -29,3 +29,11 @@ footer {
   padding: 40px;
   border-top: 1px solid black;
 }
+
+.mainFront {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}

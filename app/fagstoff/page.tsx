@@ -15,7 +15,7 @@ export default function Fagstoff() {
   }
 
   return (
-    <main className={styles.mainFront}>
+    <main className="mainFront">
       <h2>Fagstoff</h2>
       <Link href="/">Home</Link>
       <section className={styles.sectionGrid}>
