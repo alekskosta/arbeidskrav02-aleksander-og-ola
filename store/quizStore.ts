@@ -15,13 +15,21 @@ export const useQuizStore = create<QuizState>()(
   persist(
     (set) => ({
       answers: {},
-      setAnswer: (qid, oid) =>
-        set((s) => ({ answers: { ...s.answers, [qid]: oid } })),
-      removeAnswer: (qid) =>
+
+      setAnswer: (questionId, optionId) =>
         set((s) => {
-          const { [qid]: _gone, ...rest } = s.answers;
-          return { answers: rest };
+          const next = { ...s.answers };
+          next[questionId] = optionId;
+          return { answers: next };
         }),
+
+      removeAnswer: (questionId) =>
+        set((s) => {
+          const next = { ...s.answers };
+          delete next[questionId];
+          return { answers: next };
+        }),
+
       reset: () => set({ answers: {} }),
     }),
     { name: "quiz-answers", storage: createJSONStorage(() => localStorage) }
