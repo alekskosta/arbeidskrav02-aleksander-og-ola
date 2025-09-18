@@ -1,11 +1,3 @@
-.mainFront {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-}
-
 .sectionGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));

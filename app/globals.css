@@ -29,3 +29,11 @@ h3 {
 h1 {
   font-size: 3rem;
 }
+
+.mainFront {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
