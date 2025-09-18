@@ -10,30 +10,40 @@ type CardBoxProps = {
   onToggle: (id: number) => void;
 };
 
-export default function CardBox(props: CardBoxProps) {
+export default function CardBox({
+  id,
+  title,
+  info,
+  href,
+  isOpen,
+  onToggle,
+}: CardBoxProps) {
   return (
     <article
       role="button"
       tabIndex={0}
-      aria-expanded={props.isOpen}
-      aria-controls={`panel-${props.id}`}
-      className={styles.card}
-      onClick={() => props.onToggle(props.id)}
+      aria-expanded={isOpen}
+      aria-controls={`panel-${id}`}
+      className={`${styles.card} ${isOpen ? styles.active : ""}`}
+      onClick={() => onToggle(id)}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          props.onToggle(props.id);
+          onToggle(id);
         }
       }}
     >
-      <h2>{props.title}</h2>
-      {props.isOpen && (
-        <div>
-          {" "}
-          <p>{props.info}</p>
-          <Link href={props.href}>Les mer her!</Link>
-        </div>
-      )}
+      <h2 className={styles.title}>{title}</h2>
+
+      <div
+        id={`panel-${id}`}
+        className={`${styles.popover} ${isOpen ? styles.popoverOpen : ""}`}
+      >
+        <p className={styles.info}>{info}</p>
+        <Link className={styles.cta} href={href}>
+          Les mer her!
+        </Link>
+      </div>
     </article>
   );
 }

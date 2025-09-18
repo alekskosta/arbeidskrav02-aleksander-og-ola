@@ -1,10 +1,54 @@
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+  position: relative;
   border: 1px solid black;
-  padding: 4rem;
   cursor: pointer;
+  padding: 80px;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+.card:focus {
+  outline: 1px solid black;
+}
+.active {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.title {
+  font-size: 1rem;
+  user-select: none;
+}
+
+.popover {
+  position: absolute;
+  user-select: none;
+  left: -2px;
+  right: -2px;
+  bottom: 100%;
+  z-index: 20;
+  background-color: white;
+  border: 2px solid black;
+  border-bottom: none;
+  padding: 20px;
+  pointer-events: none;
+  transform-origin: bottom center;
+  transform: scaleY(0.9);
+  opacity: 0;
+  transition: transform 0.22s ease, opacity 0.22s ease;
+  will-change: transform, opacity;
+}
+
+.popoverOpen {
+  opacity: 1;
+  transform: scaleY(1);
+  pointer-events: auto;
+}
+
+.info {
+  margin: 0 0 10px;
+}
+.cta {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
