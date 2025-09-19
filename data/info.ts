@@ -49,13 +49,13 @@ export function showInfo(): Tema[] {
 }
 
 /* ---------------------------------------------- */
+/* HTML */
 
-type HtmlSection = {
+export type HtmlSection = {
   id: number;
   title: string;
   text: string[];
   code?: {
-    lang: "html" | "css" | "js";
     snippet: string;
     caption?: string;
   };
@@ -70,7 +70,6 @@ const HTML_SECTIONS: HtmlSection[] = [
       "Vanlige elementer er for eksempel <h1> for overskrift og <p> for avsnitt.",
     ],
     code: {
-      lang: "html",
       caption: "En helt enkel HTML-bit",
       snippet: `<h1>Hei!</h1>
 <p>Dette er min første side.</p>`,
@@ -84,7 +83,6 @@ const HTML_SECTIONS: HtmlSection[] = [
       "<head> inneholder metadata (tittel m.m.), mens <body> inneholder innholdet som vises.",
     ],
     code: {
-      lang: "html",
       caption: "Minimal, korrekt HTML-side",
       snippet: `<!doctype html>
 <html lang="no">
@@ -107,7 +105,6 @@ const HTML_SECTIONS: HtmlSection[] = [
       "<p> brukes for avsnitt av tekst.",
     ],
     code: {
-      lang: "html",
       caption: "Riktig bruk av overskrifter",
       snippet: `<h1>Fagstoff</h1>
 <h2>HTML</h2>
@@ -124,7 +121,6 @@ const HTML_SECTIONS: HtmlSection[] = [
       "<img> viser bilder. Gi alltid meningsfull alt-tekst (eller tom alt når bildet er dekorativt).",
     ],
     code: {
-      lang: "html",
       caption: "Semantiske lenker og bilder",
       snippet: `<p>Les mer på <a href="/fagstoff/html">HTML-siden</a>.</p>
 
@@ -142,7 +138,6 @@ const HTML_SECTIONS: HtmlSection[] = [
       "Hver oppføring ligger i et <li>-element. For begrep/definisjon kan du bruke <dl>/<dt>/<dd>.",
     ],
     code: {
-      lang: "html",
       caption: "Tre listetyper",
       snippet: `<ul>
   <li>Semantikk</li>
@@ -170,7 +165,6 @@ const HTML_SECTIONS: HtmlSection[] = [
       "<header> for toppen, <main> for hovedinnholdet (normalt én per side), <footer> for bunn.",
     ],
     code: {
-      lang: "html",
       caption: "Liten, ryddig mal",
       snippet: `<!doctype html>
 <html lang="no">
@@ -207,7 +201,6 @@ const HTML_SECTIONS: HtmlSection[] = [
       'Bruk korrekte input-typer (f.eks. type="email").',
     ],
     code: {
-      lang: "html",
       caption: "Et lite skjema",
       snippet: `<form>
   <label for="email">E-post</label>
@@ -224,7 +217,6 @@ const HTML_SECTIONS: HtmlSection[] = [
       "<title> og meta description beskriver siden og brukes i søk/deling.",
     ],
     code: {
-      lang: "html",
       caption: "Nyttige meta-tags",
       snippet: `<!doctype html>
 <html lang="no">
@@ -247,8 +239,9 @@ export function showHtmlSection(): HtmlSection[] {
 }
 
 /* ---------------------------------------------- */
+/* DESIGN (ingen code-endring nødvendig) */
 
-type DesignSection = {
+export type DesignSection = {
   id: number;
   title: string;
   text: string[];
@@ -326,13 +319,13 @@ export function showDesignSection(): DesignSection[] {
 }
 
 /* ---------------------------------------------- */
+/* CSS */
 
-type CssSection = {
+export type CssSection = {
   id: number;
   title: string;
   text: string[];
   code?: {
-    lang: "html" | "css" | "js";
     snippet: string;
     caption?: string;
   };
@@ -347,7 +340,6 @@ const CSS_SECTIONS: CssSection[] = [
       "Du knytter regler (selektorer) til elementer og setter egenskaper som color, padding og display.",
     ],
     code: {
-      lang: "css",
       caption: "Enkle regler for tekst og basis",
       snippet: `body { font-family: system-ui, sans-serif; color: #111827; }
 p { margin: 0 0 1rem; }
@@ -362,7 +354,6 @@ p { margin: 0 0 1rem; }
       "Hold selektorer korte og forståelige; bruk helst klasser for styling.",
     ],
     code: {
-      lang: "css",
       caption: "Element, klasse, id og kombinator",
       snippet: `p { font-size: 1rem; }
 .card { border: 1px solid #e5e7eb; border-radius: 12px; }
@@ -378,7 +369,6 @@ nav a:hover { text-decoration: underline; }`,
       "Unngå !important og over-spesifikke selektorer – det gjør koden vanskelig å overstyre.",
     ],
     code: {
-      lang: "css",
       caption: "Spesifisitet i praksis",
       snippet: `.btn { color: #111; }         /* lav spesifisitet */
 nav .btn { color: #1f2937; }  /* høyere (kombinasjon) */
@@ -394,7 +384,6 @@ nav .btn { color: #1f2937; }  /* høyere (kombinasjon) */
       "Sett box-sizing: border-box globalt for mer forutsigbare bredder/høyder.",
     ],
     code: {
-      lang: "css",
       caption: "Forutsigbar sizing",
       snippet: `*, *::before, *::after { box-sizing: border-box; }
 .box {
@@ -414,7 +403,6 @@ nav .btn { color: #1f2937; }  /* høyere (kombinasjon) */
       "Begrens linjelengde og bruk line-height ~1.5 for bedre lesbarhet.",
     ],
     code: {
-      lang: "css",
       caption: "Flytende typografi med clamp()",
       snippet: `html { font-size: 100%; } /* 16px i utgangspunktet */
 h1 { font-size: clamp(1.5rem, 2.5vw + 1rem, 3rem); }
@@ -429,7 +417,6 @@ p  { line-height: 1.6; max-width: 65ch; }`,
       "Bruk gap for avstand, justify-content for horisontal fordeling og align-items for vertikal justering.",
     ],
     code: {
-      lang: "css",
       caption: "En enkel rad med flex",
       snippet: `.row { display: flex; gap: 1rem; align-items: center; }
 .row--spread { justify-content: space-between; }
@@ -444,7 +431,6 @@ p  { line-height: 1.6; max-width: 65ch; }`,
       "repeat(auto-fit, minmax()) lager flytende kolonner uten media queries.",
     ],
     code: {
-      lang: "css",
       caption: "Responsivt rutenett",
       snippet: `.grid {
   display: grid;
@@ -461,7 +447,6 @@ p  { line-height: 1.6; max-width: 65ch; }`,
       "Respekter prefers-reduced-motion for å gjøre animasjoner snillere.",
     ],
     code: {
-      lang: "css",
       caption: "Myk hover + redusert bevegelse",
       snippet: `.card { transition: transform .2s ease, box-shadow .2s ease; }
 .card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
@@ -478,13 +463,13 @@ export function showCssSection(): CssSection[] {
 }
 
 /* ---------------------------------------------- */
+/* JS/TS */
 
-type JsTsSection = {
+export type JsTsSection = {
   id: number;
   title: string;
   text: string[];
   code?: {
-    lang: "html" | "css" | "js";
     snippet: string;
     caption?: string;
   };
@@ -499,7 +484,6 @@ const JS_TS_SECTIONS: JsTsSection[] = [
       "TypeScript (TS) er JavaScript med typer. Det hjelper deg å oppdage feil tidligere og gir bedre editor-støtte. TS kompileres til vanlig JS.",
     ],
     code: {
-      lang: "js",
       caption: "JS vs. TS (enkelt eksempel)",
       snippet: `// JavaScript
 const name = "Aleksander";
@@ -520,7 +504,6 @@ function greet(user: User): string {
       "Grunntyper i TS: string, number, boolean, null, undefined, unknown, any (bruk any minst mulig).",
     ],
     code: {
-      lang: "js",
       caption: "let/const og enkle typer",
       snippet: `const PI = 3.14159;
 let counter = 0;
@@ -537,7 +520,6 @@ const p: Point = { x: 10, y: 5 };`,
       "I TS kan du type både parametere og returverdi. Type inference fanger ofte returtypen automatisk.",
     ],
     code: {
-      lang: "js",
       caption: "Deklarasjon, arrow, default-param",
       snippet: `function sum(a: number, b: number): number {
   return a + b;
@@ -558,7 +540,6 @@ function hello(name = "verden") {
       "Definér typer for datastrukturer i TS for tryggere kode og bedre autocomplete.",
     ],
     code: {
-      lang: "js",
       caption: "Arbeid med objekter og arrayer",
       snippet: `type User = { id: number; name: string };
 const users: User[] = [
@@ -578,7 +559,6 @@ const found = users.find(u => u.id === 2); // { id: 2, name: "Jonas" }`,
       "Foretrekk for…of eller array-metoder fremfor klassisk for-løkkesyntaks for lesbarhet.",
     ],
     code: {
-      lang: "js",
       caption: "If/else, switch og løkker",
       snippet: `const score = 74;
 if (score >= 90) console.log("A");
@@ -605,7 +585,6 @@ for (const n of [1,2,3]) {
       "Unngå inline-hendelser i HTML. Skill struktur (HTML), stil (CSS) og logikk (JS).",
     ],
     code: {
-      lang: "js",
       caption: "Klikk-hendelse på en knapp",
       snippet: `const btn = document.querySelector("button");
 btn?.addEventListener("click", () => {
@@ -621,7 +600,6 @@ btn?.addEventListener("click", () => {
       "Bruk try/catch og sjekk res.ok for å håndtere feil ryddig.",
     ],
     code: {
-      lang: "js",
       caption: "Hente JSON med feilhandtering",
       snippet: `type Post = { id: number; title: string };
 
@@ -644,7 +622,6 @@ fetchPosts()
       "I TS kan du bruke path-aliases (tsconfig) og strenge innstillinger for bedre kvalitet.",
     ],
     code: {
-      lang: "js",
       caption: "Named export/import",
       snippet: `// math.ts
 export function sum(a: number, b: number) { return a + b; }
@@ -661,13 +638,13 @@ export function showJsTsSection(): JsTsSection[] {
 }
 
 /* ---------------------------------------------- */
+/* REACT */
 
 export type ReactSection = {
   id: number;
   title: string;
   text: string[];
   code?: {
-    lang: "html" | "css" | "js";
     snippet: string;
     caption?: string;
   };
@@ -682,7 +659,6 @@ const REACT_SECTIONS: ReactSection[] = [
       "Du beskriver UI med JSX (HTML-lignende syntaks i JavaScript) og React oppdaterer DOM når data endrer seg.",
     ],
     code: {
-      lang: "js",
       caption: "En helt enkel komponent",
       snippet: `export default function Hello() {
   return <h1>Hei fra React!</h1>;
@@ -697,7 +673,6 @@ const REACT_SECTIONS: ReactSection[] = [
       "Komponenter skal være rene funksjoner av props (samme props ⇒ samme UI).",
     ],
     code: {
-      lang: "js",
       caption: "Komponent med props",
       snippet: `function Hello({ name }) {
   return <h2>Hei, {name}!</h2>;
@@ -716,7 +691,6 @@ export default function App() {
       "Oppdater state med funksjonsvariant når neste verdi avhenger av forrige.",
     ],
     code: {
-      lang: "js",
       caption: "Enkel teller",
       snippet: `import { useState } from "react";
 
@@ -738,7 +712,6 @@ export default function Counter() {
       "Bruk en unik id eller selve verdien (hvis garantert unik).",
     ],
     code: {
-      lang: "js",
       caption: "Mappe en liste med key",
       snippet: `const topics = ["HTML", "CSS", "JS"];
 
@@ -759,7 +732,6 @@ export default function List() {
       "Løft state til nærmeste felles forelder når flere barn trenger samme data.",
     ],
     code: {
-      lang: "js",
       caption: "Barn melder opp et valg",
       snippet: `function Topic({ label, onSelect }) {
   return <button onClick={() => onSelect(label)}>{label}</button>;
@@ -786,7 +758,6 @@ export default function Picker() {
       "Tøm opp ressurser i en cleanup-funksjon, og styr når effekten kjører med avhengighetslista.",
     ],
     code: {
-      lang: "js",
       caption: "Hente data ved mount",
       snippet: `import { useEffect, useState } from "react";
 
@@ -813,7 +784,6 @@ export default function Posts() {
       "Dette gjør validering og live-tilbakemelding enkelt.",
     ],
     code: {
-      lang: "js",
       caption: "Kontrollert input",
       snippet: `import { useState } from "react";
 
@@ -844,7 +814,6 @@ export default function EmailForm() {
       "Hold JSX liten og lesbar ved å trekke ut delkomponenter.",
     ],
     code: {
-      lang: "js",
       caption: "Toggle innhold",
       snippet: `import { useState } from "react";
 
@@ -868,13 +837,13 @@ export function showReactSection(): ReactSection[] {
 }
 
 /* ---------------------------------------------- */
+/* NEXT.JS */
 
 export type NextSection = {
   id: number;
   title: string;
   text: string[];
   code?: {
-    lang: "html" | "css" | "js";
     snippet: string;
     caption?: string;
   };
@@ -889,7 +858,6 @@ const NEXT_SECTIONS: NextSection[] = [
       "Du får raskere sider, god DX og ferdige løsninger for bilder, fonter, metadata, API-endepunkter m.m.",
     ],
     code: {
-      lang: "js",
       caption: "Minimal side i app-router",
       snippet: `// app/page.tsx
 export default function Page() {
@@ -905,7 +873,6 @@ export default function Page() {
       "Dynamiske segmenter bruker klammeparenteser, f.eks. [slug] for /blogg/[slug].",
     ],
     code: {
-      lang: "js",
       caption: "Dynamisk rute med params",
       snippet: `// app/blogg/[slug]/page.tsx
 export default function Page({ params }) {
@@ -921,7 +888,6 @@ export default function Page({ params }) {
       'Trenger du state, effekter eller event-handlers, merk fila med "use client".',
     ],
     code: {
-      lang: "js",
       caption: "Client-komponent med state",
       snippet: `"use client";
 import { useState } from "react";
@@ -940,7 +906,6 @@ export default function Counter() {
       "Metadata konfigureres med export const metadata og gir god SEO/deling.",
     ],
     code: {
-      lang: "js",
       caption: "Global layout + metadata",
       snippet: `// app/layout.tsx
 export const metadata = {
@@ -965,7 +930,6 @@ export default function RootLayout({ children }) {
       "Bruk revalidate for ISR (Incremental Static Regeneration) og sjekk res.ok for feil.",
     ],
     code: {
-      lang: "js",
       caption: "Async side med caching",
       snippet: `export const revalidate = 60; // re-generer hver 60. sekund
 
@@ -991,7 +955,6 @@ export default async function Page() {
       'Sett export const dynamic = "force-dynamic" for å tvinge dynamisk rendering ved behov.',
     ],
     code: {
-      lang: "js",
       caption: "Pre-render dynamiske sider",
       snippet: `// app/blogg/[slug]/page.tsx
 export async function generateStaticParams() {
@@ -1014,7 +977,6 @@ export default function Page({ params }) {
       "For programmatisk navigasjon i client-komponenter: useRouter().push().",
     ],
     code: {
-      lang: "js",
       caption: "Link og programmatisk navigasjon",
       snippet: `import Link from "next/link";
 
@@ -1039,7 +1001,6 @@ export function GoButton() {
       "Oppgi alltid width, height og beskrivende alt-tekst.",
     ],
     code: {
-      lang: "js",
       caption: "Optimalt bilde med next/image",
       snippet: `import Image from "next/image";
 
@@ -1064,7 +1025,6 @@ export default function Hero() {
       "Response.json() gjør det enkelt å returnere JSON fra server.",
     ],
     code: {
-      lang: "js",
       caption: "Enkel GET-route",
       snippet: `// app/api/hello/route.ts
 export async function GET() {
@@ -1077,5 +1037,3 @@ export async function GET() {
 export function showNextSection(): NextSection[] {
   return NEXT_SECTIONS;
 }
-
-/* ---------------------------------------------- */

@@ -18,9 +18,7 @@ export default function JsTsSection() {
                 <figcaption className="caption">{sec.code.caption}</figcaption>
               )}
               <pre className="pre">
-                <code className={`language-${sec.code.lang}`}>
-                  {sec.code.snippet}
-                </code>
+                <code>{sec.code.snippet}</code>
               </pre>
             </figure>
           )}
