@@ -7,9 +7,10 @@ type Props = {
   questionId: string;
   options: Option[];
   onSelect: (optionId: string) => void;
+  selectedOptionId?: string;
 };
 
-export default function QuestionCard({ title, questionId, options, onSelect }: Props) {
+export default function QuestionCard({ title, questionId, options, onSelect, selectedOptionId, }: Props) {
   return (
     <section>
       <h3>{title}</h3>
@@ -20,6 +21,7 @@ export default function QuestionCard({ title, questionId, options, onSelect }: P
               type="radio"
               name={questionId}
               value={opt.id}
+              checked={selectedOptionId === opt.id}
               onChange={() => onSelect(opt.id)}
             />
             {" "}
