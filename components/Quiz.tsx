@@ -10,12 +10,18 @@ export default function Quiz() {
 
   const answers = useQuizStore((s) => s.answers);
   const setAnswer = useQuizStore((s) => s.setAnswer);
+  const reset = useQuizStore((s) => s.reset);
 
   const current = questions[index];
   const selected = answers[current.id];
 
   function handleSelect(optionId: string) {
     setAnswer(current.id, optionId);
+  }
+
+  function handleReset() {
+    reset();
+    setIndex(0);
   }
 
   return (
@@ -33,16 +39,16 @@ export default function Quiz() {
       <div style={{ marginTop: "1rem" }}>
         <button
           onClick={() => setIndex((i) => Math.max(0, i - 1))}
-          disabled={index === 0}
         >
           ← Forrige
         </button>
         <button
           onClick={() => setIndex((i) => Math.min(questions.length - 1, i + 1))}
-          style={{ marginLeft: ".5rem" }}
+          disabled={!selected}
         >
           Neste →
         </button>
+        <button onClick={handleReset}>Start på nytt</button>
       </div>
 
       {/* Sjekker at det funker i UI, denne skal fjernes */}
