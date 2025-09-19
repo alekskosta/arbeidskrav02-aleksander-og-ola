@@ -9,8 +9,8 @@ export const metadata = {
 
 export default function Css() {
   return (
-    <section className="mainFront">
-      <article>
+    <section>
+      <article className="mainFront">
         <h2>CSS</h2>
         <Link href="/fagstoff">Tilbake til Fagstoff</Link>
       </article>

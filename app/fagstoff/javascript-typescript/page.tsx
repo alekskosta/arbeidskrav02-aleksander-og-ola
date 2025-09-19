@@ -1,3 +1,4 @@
+import JsTsSection from "@/components/JsTsSection";
 import Link from "next/link";
 
 export const metadata = {
@@ -8,9 +9,12 @@ export const metadata = {
 
 export default function Javascript() {
   return (
-    <main className="mainFront">
-      <h2>JavaScript / TypeScript</h2>
-      <Link href="/fagstoff">Tilbake til Fagstoff</Link>
-    </main>
+    <section className="section-component">
+      <article className="mainFront">
+        <h2>JavaScript / TypeScript</h2>
+        <Link href="/fagstoff">Tilbake til Fagstoff</Link>
+      </article>
+      <JsTsSection />
+    </section>
   );
 }
