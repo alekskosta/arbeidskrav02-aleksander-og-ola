@@ -239,7 +239,7 @@ export function showHtmlSection(): HtmlSection[] {
 }
 
 /* ---------------------------------------------- */
-/* DESIGN (ingen code-endring nødvendig) */
+/* DESIGN */
 
 export type DesignSection = {
   id: number;
