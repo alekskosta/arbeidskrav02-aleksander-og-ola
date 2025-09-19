@@ -1,3 +1,4 @@
+import CssSection from "@/components/CssSection";
 import Link from "next/link";
 
 export const metadata = {
@@ -8,9 +9,12 @@ export const metadata = {
 
 export default function Css() {
   return (
-    <main className="mainFront">
-      <h2>CSS</h2>
-      <Link href="/fagstoff">Tilbake til Fagstoff</Link>
-    </main>
+    <section className="mainFront">
+      <article>
+        <h2>CSS</h2>
+        <Link href="/fagstoff">Tilbake til Fagstoff</Link>
+      </article>
+      <CssSection />
+    </section>
   );
 }

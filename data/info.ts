@@ -320,3 +320,153 @@ const DESIGN_SECTIONS: DesignSection[] = [
 export function showDesignSection(): DesignSection[] {
   return DESIGN_SECTIONS;
 }
+
+export type CssSection = {
+  id: number;
+  title: string;
+  text: string[];
+  code?: {
+    lang: "html" | "css" | "js";
+    snippet: string;
+    caption?: string;
+  };
+};
+
+const CSS_SECTIONS: CssSection[] = [
+  {
+    id: 1,
+    title: "Hva er CSS?",
+    text: [
+      "CSS beskriver hvordan HTML skal se ut: farger, typografi, avstander og layout.",
+      "Du knytter regler (selektorer) til elementer og setter egenskaper som color, padding og display.",
+    ],
+    code: {
+      lang: "css",
+      caption: "Enkle regler for tekst og basis",
+      snippet: `body { font-family: system-ui, sans-serif; color: #111827; }
+p { margin: 0 0 1rem; }
+.highlight { color: #2563eb; }`,
+    },
+  },
+  {
+    id: 2,
+    title: "Selektorer (grunnleggende)",
+    text: [
+      "Bruk elementselektor (p), klasse (.card), id (#hero) og kombinasjoner (nav a).",
+      "Hold selektorer korte og forståelige; bruk helst klasser for styling.",
+    ],
+    code: {
+      lang: "css",
+      caption: "Element, klasse, id og kombinator",
+      snippet: `p { font-size: 1rem; }
+.card { border: 1px solid #e5e7eb; border-radius: 12px; }
+#hero { padding: 2rem; }
+nav a:hover { text-decoration: underline; }`,
+    },
+  },
+  {
+    id: 3,
+    title: "Kaskade og spesifisitet",
+    text: [
+      "Når flere regler treffer samme element, vinner høyest spesifisitet; ellers den som står sist.",
+      "Unngå !important og over-spesifikke selektorer – det gjør koden vanskelig å overstyre.",
+    ],
+    code: {
+      lang: "css",
+      caption: "Spesifisitet i praksis",
+      snippet: `.btn { color: #111; }         /* lav spesifisitet */
+nav .btn { color: #1f2937; }  /* høyere (kombinasjon) */
+#header .btn { color: #000; } /* id vinner */
+.btn--danger { color: #b91c1c; } /* variantklasser er ryddig */`,
+    },
+  },
+  {
+    id: 4,
+    title: "Boksmodellen",
+    text: [
+      "Hvert element har innhold, padding, border og margin – alle påvirker størrelsen.",
+      "Sett box-sizing: border-box globalt for mer forutsigbare bredder/høyder.",
+    ],
+    code: {
+      lang: "css",
+      caption: "Forutsigbar sizing",
+      snippet: `*, *::before, *::after { box-sizing: border-box; }
+.box {
+  width: 240px;
+  padding: 16px;
+  border: 2px solid #111;
+  margin: 16px;
+  background: #fff;
+}`,
+    },
+  },
+  {
+    id: 5,
+    title: "Enheter og typografi",
+    text: [
+      "Bruk rem/em for skalerbar typografi/spacing, px for presisjon, og %/vw/vh for flyt.",
+      "Begrens linjelengde og bruk line-height ~1.5 for bedre lesbarhet.",
+    ],
+    code: {
+      lang: "css",
+      caption: "Flytende typografi med clamp()",
+      snippet: `html { font-size: 100%; } /* 16px i utgangspunktet */
+h1 { font-size: clamp(1.5rem, 2.5vw + 1rem, 3rem); }
+p  { line-height: 1.6; max-width: 65ch; }`,
+    },
+  },
+  {
+    id: 6,
+    title: "Layout med Flexbox",
+    text: [
+      "Flexbox er supert for rader/kolonner og justering av innhold.",
+      "Bruk gap for avstand, justify-content for horisontal fordeling og align-items for vertikal justering.",
+    ],
+    code: {
+      lang: "css",
+      caption: "En enkel rad med flex",
+      snippet: `.row { display: flex; gap: 1rem; align-items: center; }
+.row--spread { justify-content: space-between; }
+.col { flex: 1; } /* vokser og fyller tilgjengelig plass */`,
+    },
+  },
+  {
+    id: 7,
+    title: "Layout med CSS Grid",
+    text: [
+      "Grid passer for todimensjonale layouter og responsive kort-rutenett.",
+      "repeat(auto-fit, minmax()) lager flytende kolonner uten media queries.",
+    ],
+    code: {
+      lang: "css",
+      caption: "Responsivt rutenett",
+      snippet: `.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}`,
+    },
+  },
+  {
+    id: 8,
+    title: "Overganger og bevegelse",
+    text: [
+      "Animer helst transform og opacity for best ytelse; unngå layout-tunge egenskaper.",
+      "Respekter prefers-reduced-motion for å gjøre animasjoner snillere.",
+    ],
+    code: {
+      lang: "css",
+      caption: "Myk hover + redusert bevegelse",
+      snippet: `.card { transition: transform .2s ease, box-shadow .2s ease; }
+.card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}`,
+    },
+  },
+];
+
+export function showCssSection(): CssSection[] {
+  return CSS_SECTIONS;
+}

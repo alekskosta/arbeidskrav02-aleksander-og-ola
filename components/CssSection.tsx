@@ -1,8 +1,7 @@
-import { showHtmlSection } from "@/data/info";
+import { showCssSection } from "@/data/info";
 
-export default function HtmlSection() {
-  const data = showHtmlSection();
-
+export default function CssSection() {
+  const data = showCssSection();
   return (
     <section className="section-component">
       {data.map((sec) => (
