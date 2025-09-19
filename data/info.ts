@@ -48,6 +48,8 @@ export function showInfo(): Tema[] {
   return TEMAER;
 }
 
+/* ---------------------------------------------- */
+
 type HtmlSection = {
   id: number;
   title: string;
@@ -244,6 +246,8 @@ export function showHtmlSection(): HtmlSection[] {
   return HTML_SECTIONS;
 }
 
+/* ---------------------------------------------- */
+
 type DesignSection = {
   id: number;
   title: string;
@@ -321,7 +325,9 @@ export function showDesignSection(): DesignSection[] {
   return DESIGN_SECTIONS;
 }
 
-export type CssSection = {
+/* ---------------------------------------------- */
+
+type CssSection = {
   id: number;
   title: string;
   text: string[];
@@ -470,3 +476,188 @@ p  { line-height: 1.6; max-width: 65ch; }`,
 export function showCssSection(): CssSection[] {
   return CSS_SECTIONS;
 }
+
+/* ---------------------------------------------- */
+
+type JsTsSection = {
+  id: number;
+  title: string;
+  text: string[];
+  code?: {
+    lang: "html" | "css" | "js";
+    snippet: string;
+    caption?: string;
+  };
+};
+
+const JS_TS_SECTIONS: JsTsSection[] = [
+  {
+    id: 1,
+    title: "Hva er JavaScript og TypeScript?",
+    text: [
+      "JavaScript (JS) er språket som kjører i nettleseren (og i Node). Det styrer interaktivitet og logikk.",
+      "TypeScript (TS) er JavaScript med typer. Det hjelper deg å oppdage feil tidligere og gir bedre editor-støtte. TS kompileres til vanlig JS.",
+    ],
+    code: {
+      lang: "js",
+      caption: "JS vs. TS (enkelt eksempel)",
+      snippet: `// JavaScript
+const name = "Aleksander";
+console.log(\`Hei, \${name}!\`);
+
+// TypeScript (kompileres til JS)
+type User = { id: number; name: string };
+function greet(user: User): string {
+  return \`Hei, \${user.name}\`;
+}`,
+    },
+  },
+  {
+    id: 2,
+    title: "Variabler og typer",
+    text: [
+      "Bruk const for verdier som ikke skal endres, og let når du må reassign’e. Unngå var.",
+      "Grunntyper i TS: string, number, boolean, null, undefined, unknown, any (bruk any minst mulig).",
+    ],
+    code: {
+      lang: "js",
+      caption: "let/const og enkle typer",
+      snippet: `const PI = 3.14159;
+let counter = 0;
+
+type Point = { x: number; y: number };
+const p: Point = { x: 10, y: 5 };`,
+    },
+  },
+  {
+    id: 3,
+    title: "Funksjoner",
+    text: [
+      "Funksjoner kapsler logikk. Bruk beskrivende navn og få, tydelige parametere.",
+      "I TS kan du type både parametere og returverdi. Type inference fanger ofte returtypen automatisk.",
+    ],
+    code: {
+      lang: "js",
+      caption: "Deklarasjon, arrow, default-param",
+      snippet: `function sum(a: number, b: number): number {
+  return a + b;
+}
+
+const mul = (a: number, b: number): number => a * b;
+
+function hello(name = "verden") {
+  return \`Hei, \${name}!\`;
+}`,
+    },
+  },
+  {
+    id: 4,
+    title: "Objekter og arrayer",
+    text: [
+      "Objekter er nøkkel/verdi-par; arrayer er ordnede lister. map/filter/reduce er nyttige for transformasjoner.",
+      "Definér typer for datastrukturer i TS for tryggere kode og bedre autocomplete.",
+    ],
+    code: {
+      lang: "js",
+      caption: "Arbeid med objekter og arrayer",
+      snippet: `type User = { id: number; name: string };
+const users: User[] = [
+  { id: 1, name: "Amina" },
+  { id: 2, name: "Jonas" }
+];
+
+const names = users.map(u => u.name);     // ["Amina","Jonas"]
+const found = users.find(u => u.id === 2); // { id: 2, name: "Jonas" }`,
+    },
+  },
+  {
+    id: 5,
+    title: "Kontrollflyt",
+    text: [
+      "Bruk if/else for valg, og switch når du har mange grener på samme uttrykk.",
+      "Foretrekk for…of eller array-metoder fremfor klassisk for-løkkesyntaks for lesbarhet.",
+    ],
+    code: {
+      lang: "js",
+      caption: "If/else, switch og løkker",
+      snippet: `const score = 74;
+if (score >= 90) console.log("A");
+else if (score >= 80) console.log("B");
+else console.log("C eller lavere");
+
+const tag = "info";
+switch (tag) {
+  case "error": console.log("Feil"); break;
+  case "info":  console.log("Info"); break;
+  default:      console.log("Ukjent");
+}
+
+for (const n of [1,2,3]) {
+  console.log(n);
+}`,
+    },
+  },
+  {
+    id: 6,
+    title: "DOM og hendelser (i nettleser)",
+    text: [
+      "I ren JS kan du finne elementer med querySelector og lytte på hendelser med addEventListener.",
+      "Unngå inline-hendelser i HTML. Skill struktur (HTML), stil (CSS) og logikk (JS).",
+    ],
+    code: {
+      lang: "js",
+      caption: "Klikk-hendelse på en knapp",
+      snippet: `const btn = document.querySelector("button");
+btn?.addEventListener("click", () => {
+  alert("Du klikket!");
+});`,
+    },
+  },
+  {
+    id: 7,
+    title: "Asynkron kode: fetch og async/await",
+    text: [
+      "Nettverk og I/O er asynkront. async/await gjør løfting av data enklere å lese enn rå promises.",
+      "Bruk try/catch og sjekk res.ok for å håndtere feil ryddig.",
+    ],
+    code: {
+      lang: "js",
+      caption: "Hente JSON med feilhandtering",
+      snippet: `type Post = { id: number; title: string };
+
+async function fetchPosts(): Promise<Post[]> {
+  const res = await fetch("/api/posts");
+  if (!res.ok) throw new Error("Kunne ikke hente poster");
+  return res.json();
+}
+
+fetchPosts()
+  .then(posts => console.log(posts))
+  .catch(err => console.error(err));`,
+    },
+  },
+  {
+    id: 8,
+    title: "Moduler og organisering",
+    text: [
+      "ES-moduler bruker import/export. Del opp i små filer etter ansvar.",
+      "I TS kan du bruke path-aliases (tsconfig) og strenge innstillinger for bedre kvalitet.",
+    ],
+    code: {
+      lang: "js",
+      caption: "Named export/import",
+      snippet: `// math.ts
+export function sum(a: number, b: number) { return a + b; }
+
+// app.ts
+import { sum } from "./math";
+console.log(sum(2, 3)); // 5`,
+    },
+  },
+];
+
+export function showJsTsSection(): JsTsSection[] {
+  return JS_TS_SECTIONS;
+}
+
+/* ---------------------------------------------- */

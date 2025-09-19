@@ -39,7 +39,7 @@ h1 {
 }
 
 .section-component {
-  padding-left: 40px;
+  padding: 0px 40px;
   max-width: 760px;
   margin-inline: auto;
   display: flex;
