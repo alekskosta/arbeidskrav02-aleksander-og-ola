@@ -661,3 +661,210 @@ export function showJsTsSection(): JsTsSection[] {
 }
 
 /* ---------------------------------------------- */
+
+export type ReactSection = {
+  id: number;
+  title: string;
+  text: string[];
+  code?: {
+    lang: "html" | "css" | "js";
+    snippet: string;
+    caption?: string;
+  };
+};
+
+const REACT_SECTIONS: ReactSection[] = [
+  {
+    id: 1,
+    title: "Hva er React?",
+    text: [
+      "React lar deg bygge brukergrensesnitt som små, gjenbrukbare komponenter.",
+      "Du beskriver UI med JSX (HTML-lignende syntaks i JavaScript) og React oppdaterer DOM når data endrer seg.",
+    ],
+    code: {
+      lang: "js",
+      caption: "En helt enkel komponent",
+      snippet: `export default function Hello() {
+  return <h1>Hei fra React!</h1>;
+}`,
+    },
+  },
+  {
+    id: 2,
+    title: "JSX og props",
+    text: [
+      "JSX lar deg skrive markup i JS. Props er data som sendes inn i komponenter.",
+      "Komponenter skal være rene funksjoner av props (samme props ⇒ samme UI).",
+    ],
+    code: {
+      lang: "js",
+      caption: "Komponent med props",
+      snippet: `function Hello({ name }) {
+  return <h2>Hei, {name}!</h2>;
+}
+
+export default function App() {
+  return <Hello name="Aleksander" />;
+}`,
+    },
+  },
+  {
+    id: 3,
+    title: "Tilstand med useState",
+    text: [
+      "useState gir lokal tilstand i funksjonskomponenter.",
+      "Oppdater state med funksjonsvariant når neste verdi avhenger av forrige.",
+    ],
+    code: {
+      lang: "js",
+      caption: "Enkel teller",
+      snippet: `import { useState } from "react";
+
+export default function Counter() {
+  const [count, setCount] = useState(0);
+  return (
+    <button onClick={() => setCount(c => c + 1)}>
+      Klikket {count} ganger
+    </button>
+  );
+}`,
+    },
+  },
+  {
+    id: 4,
+    title: "Lister og keys",
+    text: [
+      "Når du renderer lister, må hvert barn ha en stabil key for effektiv oppdatering.",
+      "Bruk en unik id eller selve verdien (hvis garantert unik).",
+    ],
+    code: {
+      lang: "js",
+      caption: "Mappe en liste med key",
+      snippet: `const topics = ["HTML", "CSS", "JS"];
+
+export default function List() {
+  return (
+    <ul>
+      {topics.map(t => <li key={t}>{t}</li>)}
+    </ul>
+  );
+}`,
+    },
+  },
+  {
+    id: 5,
+    title: "Hendelser og å løfte state",
+    text: [
+      "Foreldre kan gi callbacks til barn for å få beskjed om handlinger.",
+      "Løft state til nærmeste felles forelder når flere barn trenger samme data.",
+    ],
+    code: {
+      lang: "js",
+      caption: "Barn melder opp et valg",
+      snippet: `function Topic({ label, onSelect }) {
+  return <button onClick={() => onSelect(label)}>{label}</button>;
+}
+
+export default function Picker() {
+  function handleSelect(label) {
+    alert("Valgt: " + label);
+  }
+  return (
+    <div>
+      <Topic label="HTML" onSelect={handleSelect} />
+      <Topic label="CSS" onSelect={handleSelect} />
+    </div>
+  );
+}`,
+    },
+  },
+  {
+    id: 6,
+    title: "useEffect og sideeffekter",
+    text: [
+      "useEffect brukes til sideeffekter (fetch, abonnement, manipulere tittel osv.).",
+      "Tøm opp ressurser i en cleanup-funksjon, og styr når effekten kjører med avhengighetslista.",
+    ],
+    code: {
+      lang: "js",
+      caption: "Hente data ved mount",
+      snippet: `import { useEffect, useState } from "react";
+
+export default function Posts() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    let active = true;
+    fetch("/api/posts")
+      .then(r => r.json())
+      .then(data => { if (active) setPosts(data); });
+    return () => { active = false; };
+  }, []);
+
+  return <pre>{JSON.stringify(posts, null, 2)}</pre>;
+}`,
+    },
+  },
+  {
+    id: 7,
+    title: "Kontrollerte skjemafelt",
+    text: [
+      "I kontrollerte felt kommer verdien fra state og onChange oppdaterer state.",
+      "Dette gjør validering og live-tilbakemelding enkelt.",
+    ],
+    code: {
+      lang: "js",
+      caption: "Kontrollert input",
+      snippet: `import { useState } from "react";
+
+export default function EmailForm() {
+  const [email, setEmail] = useState("");
+  return (
+    <form>
+      <label>
+        E-post
+        <input
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          type="email"
+          placeholder="deg@eksempel.no"
+        />
+      </label>
+      <button type="submit">Send</button>
+    </form>
+  );
+}`,
+    },
+  },
+  {
+    id: 8,
+    title: "Betinget rendering",
+    text: [
+      "Render bare det som trengs: bruk && for enkle tilfeller og ?: for alternativer.",
+      "Hold JSX liten og lesbar ved å trekke ut delkomponenter.",
+    ],
+    code: {
+      lang: "js",
+      caption: "Toggle innhold",
+      snippet: `import { useState } from "react";
+
+export default function Toggle() {
+  const [open, setOpen] = useState(false);
+  return (
+    <div>
+      <button onClick={() => setOpen(o => !o)}>
+        {open ? "Skjul" : "Vis"}
+      </button>
+      {open && <p>Innholdet er synlig</p>}
+    </div>
+  );
+}`,
+    },
+  },
+];
+
+export function showReactSection(): ReactSection[] {
+  return REACT_SECTIONS;
+}
+
+/* ---------------------------------------------- */

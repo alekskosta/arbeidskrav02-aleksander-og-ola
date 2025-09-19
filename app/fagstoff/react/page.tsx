@@ -1,3 +1,4 @@
+import ReactSection from "@/components/ReactSection";
 import Link from "next/link";
 
 export const metadata = {
@@ -7,9 +8,12 @@ export const metadata = {
 
 export default function React() {
   return (
-    <main className="mainFront">
-      <h2>React</h2>
-      <Link href="/fagstoff">Tilbake til Fagstoff</Link>
-    </main>
+    <section className="section-component">
+      <article className="mainFront">
+        <h2>React</h2>
+        <Link href="/fagstoff">Tilbake til Fagstoff</Link>
+      </article>
+      <ReactSection />
+    </section>
   );
 }
