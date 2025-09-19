@@ -868,3 +868,214 @@ export function showReactSection(): ReactSection[] {
 }
 
 /* ---------------------------------------------- */
+
+export type NextSection = {
+  id: number;
+  title: string;
+  text: string[];
+  code?: {
+    lang: "html" | "css" | "js";
+    snippet: string;
+    caption?: string;
+  };
+};
+
+const NEXT_SECTIONS: NextSection[] = [
+  {
+    id: 1,
+    title: "Hva er Next.js?",
+    text: [
+      "Next.js er et fullstack-rammeverk for React med filbasert ruting, serverkomponenter, rendering på server/klient og innebygd optimalisering.",
+      "Du får raskere sider, god DX og ferdige løsninger for bilder, fonter, metadata, API-endepunkter m.m.",
+    ],
+    code: {
+      lang: "js",
+      caption: "Minimal side i app-router",
+      snippet: `// app/page.tsx
+export default function Page() {
+  return <h1>Hei Next.js</h1>;
+}`,
+    },
+  },
+  {
+    id: 2,
+    title: "App Router og filbasert ruting",
+    text: [
+      "Mapper og filnavn i /app definerer URL-er: /app/om/page.tsx ⇒ /om.",
+      "Dynamiske segmenter bruker klammeparenteser, f.eks. [slug] for /blogg/[slug].",
+    ],
+    code: {
+      lang: "js",
+      caption: "Dynamisk rute med params",
+      snippet: `// app/blogg/[slug]/page.tsx
+export default function Page({ params }) {
+  return <h1>Innlegg: {params.slug}</h1>;
+}`,
+    },
+  },
+  {
+    id: 3,
+    title: "Server- vs. Client-komponenter",
+    text: [
+      "Som standard er komponenter server-komponenter (ingen hooks, kjører på server).",
+      'Trenger du state, effekter eller event-handlers, merk fila med "use client".',
+    ],
+    code: {
+      lang: "js",
+      caption: "Client-komponent med state",
+      snippet: `"use client";
+import { useState } from "react";
+
+export default function Counter() {
+  const [n, setN] = useState(0);
+  return <button onClick={() => setN(n + 1)}>Klikk: {n}</button>;
+}`,
+    },
+  },
+  {
+    id: 4,
+    title: "Layouts og metadata",
+    text: [
+      "layout.tsx definerer HTML-skjelett og deles av ruter under samme mappe.",
+      "Metadata konfigureres med export const metadata og gir god SEO/deling.",
+    ],
+    code: {
+      lang: "js",
+      caption: "Global layout + metadata",
+      snippet: `// app/layout.tsx
+export const metadata = {
+  title: "Mitt nettsted",
+  description: "Kort beskrivelse av siden",
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="no">
+      <body>{children}</body>
+    </html>
+  );
+}`,
+    },
+  },
+  {
+    id: 5,
+    title: "Datahenting på serveren",
+    text: [
+      "I app-router kan sider være async og gjøre fetch direkte (på server).",
+      "Bruk revalidate for ISR (Incremental Static Regeneration) og sjekk res.ok for feil.",
+    ],
+    code: {
+      lang: "js",
+      caption: "Async side med caching",
+      snippet: `export const revalidate = 60; // re-generer hver 60. sekund
+
+async function getData() {
+  const res = await fetch("https://api.example.com/posts", {
+    next: { revalidate: 60 }
+  });
+  if (!res.ok) throw new Error("Kunne ikke hente data");
+  return res.json();
+}
+
+export default async function Page() {
+  const data = await getData();
+  return <pre>{JSON.stringify(data, null, 2)}</pre>;
+}`,
+    },
+  },
+  {
+    id: 6,
+    title: "Statisk vs. dynamisk rendering",
+    text: [
+      "Bruk generateStaticParams for å forhåndsgenerere dynamiske ruter.",
+      'Sett export const dynamic = "force-dynamic" for å tvinge dynamisk rendering ved behov.',
+    ],
+    code: {
+      lang: "js",
+      caption: "Pre-render dynamiske sider",
+      snippet: `// app/blogg/[slug]/page.tsx
+export async function generateStaticParams() {
+  return [{ slug: "intro" }, { slug: "css" }];
+}
+
+export default function Page({ params }) {
+  return <h1>{params.slug}</h1>;
+}
+
+// Alternativt:
+// export const dynamic = "force-dynamic";`,
+    },
+  },
+  {
+    id: 7,
+    title: "Navigasjon og lenker",
+    text: [
+      "Bruk <Link> for klientnavigasjon med prefetching.",
+      "For programmatisk navigasjon i client-komponenter: useRouter().push().",
+    ],
+    code: {
+      lang: "js",
+      caption: "Link og programmatisk navigasjon",
+      snippet: `import Link from "next/link";
+
+export function Nav() {
+  return <Link href="/fagstoff">Fagstoff</Link>;
+}
+
+// Client:
+"use client";
+import { useRouter } from "next/navigation";
+export function GoButton() {
+  const router = useRouter();
+  return <button onClick={() => router.push("/kontakt")}>Kontakt</button>;
+}`,
+    },
+  },
+  {
+    id: 8,
+    title: "Bilder og assets",
+    text: [
+      "next/image optimaliserer bilder automatisk (størrelse, format, lazy-loading).",
+      "Oppgi alltid width, height og beskrivende alt-tekst.",
+    ],
+    code: {
+      lang: "js",
+      caption: "Optimalt bilde med next/image",
+      snippet: `import Image from "next/image";
+
+export default function Hero() {
+  return (
+    <Image
+      src="/images/hero.jpg"
+      alt="Konsert i mørkt lokale"
+      width={1200}
+      height={600}
+      priority
+    />
+  );
+}`,
+    },
+  },
+  {
+    id: 9,
+    title: "API-endepunkter (Route Handlers)",
+    text: [
+      "Lag backend-endepunkter i /app/api/.../route.ts. Du kan håndtere GET, POST m.fl.",
+      "Response.json() gjør det enkelt å returnere JSON fra server.",
+    ],
+    code: {
+      lang: "js",
+      caption: "Enkel GET-route",
+      snippet: `// app/api/hello/route.ts
+export async function GET() {
+  return Response.json({ hello: "world" });
+}`,
+    },
+  },
+];
+
+export function showNextSection(): NextSection[] {
+  return NEXT_SECTIONS;
+}
+
+/* ---------------------------------------------- */
