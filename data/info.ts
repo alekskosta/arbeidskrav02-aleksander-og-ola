@@ -243,3 +243,80 @@ const HTML_SECTIONS: HtmlSection[] = [
 export function showHtmlSection(): HtmlSection[] {
   return HTML_SECTIONS;
 }
+
+type DesignSection = {
+  id: number;
+  title: string;
+  text: string[];
+};
+
+const DESIGN_SECTIONS: DesignSection[] = [
+  {
+    id: 1,
+    title: "Hva er design?",
+    text: [
+      "Design handler om å løse problemer og gjøre innhold forståelig. Det skal hjelpe brukeren å nå målet sitt uten friksjon.",
+      "Vi bruker visuelle valg (typografi, farger, layout) for å styre oppmerksomhet og skape en tydelig reise gjennom innholdet.",
+    ],
+  },
+  {
+    id: 2,
+    title: "Hierarki og fokus",
+    text: [
+      "Bestem hva som er viktigst på siden og gjør det lett å se først. Bruk størrelse, kontrast og plassering for å skape hierarki.",
+      "Hold hvert skjermbilde til ett tydelig hovedfokus. Fjern støy som ikke hjelper brukeren videre.",
+    ],
+  },
+  {
+    id: 3,
+    title: "Typografi – lett å lese",
+    text: [
+      "Velg 1–2 skrifttyper og en enkel skala for overskrifter og brødtekst. Tydelig forskjell mellom nivåene gir ro og rytme.",
+      "Hold linjelengde moderat (ca. 45–75 tegn) og linjeavstand rundt 1.4–1.6 for god lesbarhet.",
+    ],
+  },
+  {
+    id: 4,
+    title: "Farger og kontrast",
+    text: [
+      "Lag en liten palett: primærfarge, nøytraler og én aksent. Bruk farge til å understreke mening, ikke erstatte den.",
+      "Sørg for god kontrast mellom tekst og bakgrunn, og ikke basér viktig informasjon kun på farge.",
+    ],
+  },
+  {
+    id: 5,
+    title: "Layout, grid og luft",
+    text: [
+      "Bruk et grid for struktur og jevne marger. Justering og gjentakelse skaper orden og profesjonelt uttrykk.",
+      "Tenk «luft» som et aktivt verktøy: konsekvent mellomrom (f.eks. 8-pikslers trinn) gjør innholdet lettere å skanne.",
+    ],
+  },
+  {
+    id: 6,
+    title: "Tilgjengelighet fra start",
+    text: [
+      "Semantiske elementer, tydelige fokusmarkører og gode lenketekster hjelper alle – også skjermlesere og tastaturbrukere.",
+      "Gi treffflater nok størrelse, beskriv bilder med alt-tekst, og sørg for at rekkefølgen i tabbing er logisk.",
+    ],
+  },
+  {
+    id: 7,
+    title: "Bilder og ikoner",
+    text: [
+      "Bruk bilder som støtter budskapet og unngå dekor som stjeler fokus. Komprimer og skaler riktig for ytelse.",
+      "Hold ikonstilen konsistent (strektykkelse, hjørner) og bruk tekstlabel når betydningen kan misforstås.",
+    ],
+  },
+  {
+    id: 8,
+    title: "Konsistens og komponenter",
+    text: [
+      "Gjenbruk mønstre og komponenter for like handlinger. Definér enkle design-tokens (farger, spacing, radius) for konsistens.",
+      "Beskriv tilstander (hover, fokus, deaktivert, feil) og hold interaksjoner forutsigbare på tvers av flater.",
+    ],
+  },
+];
+
+export function showDesignSection(): DesignSection[] {
+  return DESIGN_SECTIONS;
+}
