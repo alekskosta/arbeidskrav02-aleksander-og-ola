@@ -4,12 +4,21 @@ import Link from "next/link";
 import { useQuizStore } from "@/store/quizStore";
 import { questions } from "@/data/questions";
 
+function sameSet(a: string[], b: string[]) {
+  if (a.length !== b.length) return false;
+  const A = new Set(a), B = new Set(b);
+  for (const x of A) if (!B.has(x)) return false;
+  return true;
+}
+
 export default function QuizSummary({ onRestart }: { onRestart: () => void }) {
   const answers = useQuizStore((s) => s.answers);
 
   let correctCount = 0;
   for (const q of questions) {
-    if (answers[q.id] === q.correctOptionId) correctCount++;
+    const chosen = answers[q.id] ?? [];
+    const isCorrect = q.multipleChoice ? sameSet(chosen, q.correctOptionId) : chosen.length === 1 && chosen[0] === q.correctOptionId[0];
+    if (isCorrect) correctCount++;
   }
 
   const total = questions.length;

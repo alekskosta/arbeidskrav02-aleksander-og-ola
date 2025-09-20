@@ -23,13 +23,14 @@ export const questions: Question[] = [
   {
     id: "q2",
     title: "Spørsmål 2",
+    multipleChoice: true,
     options: [
       { id: "a", text: "Svaralternativ 1" },
       { id: "b", text: "Svaralternativ 2" },
       { id: "c", text: "Svaralternativ 3" },
       { id: "d", text: "Svaralternativ 4" },
     ],
-    correctOptionId: ["a"],
+    correctOptionId: ["a", "b"],
   },
   {
     id: "q3",

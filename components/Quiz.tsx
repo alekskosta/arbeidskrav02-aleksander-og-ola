@@ -11,24 +11,24 @@ export default function Quiz() {
   const [showSummary, setShowSummary] = useState(false);
 
   const answers = useQuizStore((s) => s.answers);
-  const setAnswer = useQuizStore((s) => s.setAnswer);
+  const setSingle = useQuizStore((s) => s.setSingle);
+  const toggle = useQuizStore((s) => s.toggle);
   const reset = useQuizStore((s) => s.reset);
 
   const current = questions[index];
-  const selected = answers[current.id];
+  const isMultipleChoice = current.multipleChoice ? true : false;
+  const selectedIds = answers[current.id] ?? [];
 
   function handleSelect(optionId: string) {
-    setAnswer(current.id, optionId);
+    if (isMultipleChoice) toggle(current.id, optionId);
+    else setSingle(current.id, optionId);
   }
 
   function handleNext() {
-    if (!selected) return;
-    const lastIndex = questions.length - 1;
-    if (index < lastIndex) {
-      setIndex((i) => i + 1);
-    } else {
-      setShowSummary(true);
-    }
+    if (selectedIds.length === 0) return;
+    const last = questions.length - 1;
+    if (index < last) setIndex((i) => i + 1);
+    else setShowSummary(true);
   }
 
   function handlePrev() {
@@ -41,9 +41,7 @@ export default function Quiz() {
     setShowSummary(false);
   }
 
-  if (showSummary) {
-    return <QuizSummary onRestart={handleRestart} />;
-  }
+  if (showSummary) return <QuizSummary onRestart={handleRestart} />;
 
   return (
     <main>
@@ -53,20 +51,17 @@ export default function Quiz() {
         title={current.title}
         questionId={current.id}
         options={current.options}
+        multipleChoice={isMultipleChoice}
+        selectedOptionId={selectedIds}
         onSelect={handleSelect}
-        selectedOptionId={selected}
       />
 
-      <div>
-        <button onClick={handlePrev} disabled={index === 0}>
-          ← Forrige
-        </button>
-        <button onClick={handleNext} disabled={!selected}>
+      <div style={{ marginTop: "1rem", display: "flex", gap: ".5rem" }}>
+        <button onClick={handlePrev} disabled={index === 0}>← Forrige</button>
+        <button onClick={handleNext} disabled={selectedIds.length === 0}>
           {index < questions.length - 1 ? "Neste →" : "Vis resultat"}
         </button>
-        <button onClick={handleRestart} type="button">
-          Start på nytt
-        </button>
+        <button onClick={handleRestart} type="button">Start på nytt</button>
       </div>
     </main>
   );
