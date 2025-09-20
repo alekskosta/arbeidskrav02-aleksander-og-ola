@@ -1,12 +1,60 @@
-import Link from "next/link";
-import Quiz from "@/components/Quiz";
+"use client";
 
-export default function Oppgaver() {
+import QuestionCard from "@/components/quiz/QuizCard"; // flytt/oppdater sti
+import NavButtons from "@/components/quiz/NavButtons";
+import QuizSummary from "@/components/quiz/QuizSummary";
+import { useQuizController } from "@/hooks/useQuizController";
+
+export default function Page() {
+  const {
+    showSummary,
+    current,
+    selected,
+    isFirst,
+    isLast,
+    canProceed,
+    correctCount,
+    total,
+    percent,
+    passed,
+    onSelect,
+    onPrev,
+    onNext,
+    onRestart,
+  } = useQuizController();
+
   return (
     <main>
       <h2>Oppgaver</h2>
-      <Link href="/">Forside</Link>
-      <Quiz />
+
+      {!showSummary ? (
+        <>
+          <QuestionCard
+            title={current.title}
+            questionId={current.id}
+            options={current.options}
+            selectedOptionId={selected}
+            onSelect={onSelect}
+          />
+
+          <NavButtons
+            onPrev={onPrev}
+            onNext={onNext}
+            onRestart={onRestart}
+            isFirst={isFirst}
+            isLast={isLast}
+            canProceed={canProceed}
+          />
+        </>
+      ) : (
+        <QuizSummary
+          correctCount={correctCount}
+          total={total}
+          percent={percent}
+          passed={passed}
+          onRestart={onRestart}
+        />
+      )}
     </main>
   );
 }
