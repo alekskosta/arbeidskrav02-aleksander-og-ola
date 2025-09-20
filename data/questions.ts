@@ -4,7 +4,8 @@ export type Question = {
   id: string;
   title: string;
   options: Option[]; 
-  correctOptionId: string; 
+  correctOptionId: string[];
+  multipleChoice?: boolean;
 };
 
 export const questions: Question[] = [
@@ -17,7 +18,7 @@ export const questions: Question[] = [
       { id: "c", text: "Svaralternativ 3" },
       { id: "d", text: "Svaralternativ 4" },
     ],
-    correctOptionId: "a",
+    correctOptionId: ["a"],
   },
   {
     id: "q2",
@@ -28,7 +29,7 @@ export const questions: Question[] = [
       { id: "c", text: "Svaralternativ 3" },
       { id: "d", text: "Svaralternativ 4" },
     ],
-    correctOptionId: "a",
+    correctOptionId: ["a"],
   },
   {
     id: "q3",
@@ -39,7 +40,7 @@ export const questions: Question[] = [
       { id: "c", text: "Svaralternativ 3" },
       { id: "d", text: "Svaralternativ 4" },
     ],
-    correctOptionId: "a",
+    correctOptionId: ["a"],
   },
   {
     id: "q4",
@@ -50,7 +51,7 @@ export const questions: Question[] = [
       { id: "c", text: "Svaralternativ 3" },
       { id: "d", text: "Svaralternativ 4" },
     ],
-    correctOptionId: "a",
+    correctOptionId: ["a"],
   },
   {
     id: "q5",
@@ -61,7 +62,7 @@ export const questions: Question[] = [
       { id: "c", text: "Svaralternativ 3" },
       { id: "d", text: "Svaralternativ 4" },
     ],
-    correctOptionId: "a",
+    correctOptionId: ["a"],
   },
   {
     id: "q6",
@@ -72,7 +73,7 @@ export const questions: Question[] = [
       { id: "c", text: "Svaralternativ 3" },
       { id: "d", text: "Svaralternativ 4" },
     ],
-    correctOptionId: "a",
+    correctOptionId: ["a"],
   },
   {
     id: "q7",
@@ -83,7 +84,7 @@ export const questions: Question[] = [
       { id: "c", text: "Svaralternativ 3" },
       { id: "d", text: "Svaralternativ 4" },
     ],
-    correctOptionId: "a",
+    correctOptionId: ["a"],
   },
   {
     id: "q8",
@@ -94,7 +95,7 @@ export const questions: Question[] = [
       { id: "c", text: "Svaralternativ 3" },
       { id: "d", text: "Svaralternativ 4" },
     ],
-    correctOptionId: "a",
+    correctOptionId: ["a"],
   },
   {
     id: "q9",
@@ -105,7 +106,7 @@ export const questions: Question[] = [
       { id: "c", text: "Svaralternativ 3" },
       { id: "d", text: "Svaralternativ 4" },
     ],
-    correctOptionId: "a",
+    correctOptionId: ["a"],
   },
   {
     id: "q10",
@@ -116,6 +117,6 @@ export const questions: Question[] = [
       { id: "c", text: "Svaralternativ 3" },
       { id: "d", text: "Svaralternativ 4" },
     ],
-    correctOptionId: "a",
+    correctOptionId: ["a"],
   },
 ];
