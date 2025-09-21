@@ -7,7 +7,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 1fr 1fr;
   gap: 56px;
   align-items: center;
 }
