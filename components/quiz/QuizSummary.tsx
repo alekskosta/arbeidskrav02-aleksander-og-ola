@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import styles from "./QuizSummary.module.css";
 
 type Props = {
   correctCount: number;
@@ -18,16 +18,21 @@ export default function QuizSummary({
   onRestart,
 }: Props) {
   return (
-    <section>
-      <h2>Resultat</h2>
-      <p>
+    <section
+      className={`${styles.summary} ${passed ? styles.passed : styles.failed}`}
+    >
+      <div className={styles.percent}>{percent}%</div>
+      <div className={styles.message}>
+        {passed
+          ? "Gratulerer, du har bestått!"
+          : "Du har dessverre ikke bestått."}
+      </div>
+      <p className={styles.details}>
         Du fikk <strong>{correctCount}</strong> av <strong>{total}</strong>{" "}
-        riktig (<strong>{percent}%</strong>) — {passed ? "Bestått!" : "Ikke bestått!"}
+        riktig
       </p>
-
-      <div>
+      <div className={styles.actions}>
         <button onClick={onRestart}>Start på nytt</button>
-        <Link href="/">← Til forsiden</Link>
       </div>
     </section>
   );
