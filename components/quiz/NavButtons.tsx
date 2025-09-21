@@ -1,5 +1,7 @@
 "use client";
 
+import styles from "./NavButtons.module.css";
+
 type Props = {
   onPrev: () => void;
   onNext: () => void;
@@ -18,14 +20,28 @@ export default function NavButtons({
   canProceed,
 }: Props) {
   return (
-    <div>
-      <button onClick={onPrev} disabled={isFirst}>
-        ← Forrige
+    <div className={styles.container}>
+      <button
+        onClick={onPrev}
+        disabled={isFirst}
+        className={`${styles.button} ${styles.prev}`}
+      >
+        Forrige
       </button>
-      <button onClick={onNext} disabled={!canProceed}>
-        {isLast ? "Vis resultat" : "Neste →"}
+
+      <button
+        onClick={onNext}
+        disabled={!canProceed}
+        className={`${styles.button} ${styles.next}`}
+      >
+        {isLast ? "Vis resultat" : "Neste"}
       </button>
-      <button onClick={onRestart} type="button">
+
+      <button
+        onClick={onRestart}
+        type="button"
+        className={`${styles.button} ${styles.restart}`}
+      >
         Start på nytt
       </button>
     </div>
