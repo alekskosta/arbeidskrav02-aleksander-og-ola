@@ -1,6 +1,7 @@
 "use client";
 
 import type { Option } from "@/data/questions";
+import styles from "./QuizCard.module.css"
 
 type Props = {
   title: string;
@@ -12,11 +13,11 @@ type Props = {
 
 export default function QuestionCard({ title, questionId, options, onSelect, selectedOptionId, }: Props) {
   return (
-    <section>
+     <section className={styles.card}>
       <h3>{title}</h3>
-      <div>
+      <div className={styles.options}>
         {options.map((opt) => (
-          <label key={opt.id} style={{ display: "block", marginBottom: ".5rem" }}>
+          <label key={opt.id} className={styles.option}>
             <input
               type="radio"
               name={questionId}
@@ -24,7 +25,6 @@ export default function QuestionCard({ title, questionId, options, onSelect, sel
               checked={selectedOptionId === opt.id}
               onChange={() => onSelect(opt.id)}
             />
-            {" "}
             {opt.text}
           </label>
         ))}

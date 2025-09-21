@@ -1,6 +1,7 @@
 :root {
+  --bg-color-main: #27423c;
+  --bg-color-light: #ffffff;
   --color-text: #27423c;
-  --color-bg-main: #27423c;
   --color-btn-main: #a7d9cc;
   --color-btn-sec: #ff6b6b;
   --color-btn-text: #222222;
@@ -28,4 +29,9 @@ h3 {
 
 h1 {
   font-size: 3rem;
+}
+
+.mainBg {
+  background-color: var(--bg-color-main);
+  min-height: 82vh;
 }

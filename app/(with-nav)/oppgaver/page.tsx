@@ -1,11 +1,11 @@
 "use client";
 
-import QuestionCard from "@/components/quiz/QuizCard"; // flytt/oppdater sti
+import QuestionCard from "@/components/quiz/QuizCard";
 import NavButtons from "@/components/quiz/NavButtons";
 import QuizSummary from "@/components/quiz/QuizSummary";
 import { useQuizController } from "@/hooks/useQuizController";
 
-export default function Page() {
+export default function Quiz() {
   const {
     showSummary,
     current,
