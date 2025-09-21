@@ -1,0 +1,58 @@
+.card {
+  background: var(--color-bg-light);
+  border-radius: 16px;
+  padding: 30px;
+  margin: 0 auto;
+  max-width: 760px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+
+.card h2 {
+  font-size: 1.35rem;
+  margin-bottom: 30px;
+}
+
+.options {
+  display: grid;
+  gap: 12px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+}
+
+.option:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.option input {
+  accent-color: #000000;
+}
+
+.option:has(input:checked) {
+  border-color: var(--color-btn-main);
+  box-shadow: 0 0 0 4px
+    color-mix(in oklab, var(--color-btn-main) 0%, transparent);
+}
+
+@media (max-width: 960px) {
+  .card {
+    padding: 30px;
+    margin: 16px auto;
+  }
+  .card h2 {
+    text-align: center;
+    padding: 10px 0;
+  }
+  .option {
+    padding: 14px;
+  }
+}

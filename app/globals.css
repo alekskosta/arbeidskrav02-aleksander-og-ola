@@ -1,9 +1,12 @@
 :root {
-  --color-text: #27423c;
   --color-bg-main: #27423c;
+  --color-bg-light: #ffffff;
+  --color-text: #27423c;
+  --color-text-sec: #3a7d6b;
   --color-btn-main: #a7d9cc;
   --color-btn-sec: #ff6b6b;
   --color-btn-text: #222222;
+  --color-btn-text-sec: #FFFFFF;
 }
 
 * {
@@ -19,15 +22,21 @@ body {
   color: var(--color-text);
 }
 
-h1,
-h2,
-h3 {
-  font-family: var(--font-inter), sans-serif;
+h1, h3 {
   font-weight: 200;
+}
+
+h2 {
+  font-weight: 700;
 }
 
 h1 {
   font-size: 3rem;
+}
+
+.mainBg {
+  background-color: var(--color-bg-main);
+  min-height: 82vh;
 }
 
 .mainFront {
