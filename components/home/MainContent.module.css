@@ -2,7 +2,6 @@
   width: 100%;
   max-width: 1180px;
   margin: 0 auto;
-  padding: 32px 24px;
 }
 
 .grid {
@@ -29,6 +28,7 @@
 .lead {
   margin: 0 0 24px;
   max-width: 55ch;
+  line-height: 1.8rem;
 }
 
 .ctaRow {
@@ -46,14 +46,17 @@
   .grid {
     grid-template-columns: 1fr;
     gap: 28px;
-  }
-  .right {
-    justify-self: start;
+    padding: 50px;
   }
   .left,
   .right {
     text-align: center;
     justify-content: center;
     align-items: center;
+  }
+  .devices {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
   }
 }

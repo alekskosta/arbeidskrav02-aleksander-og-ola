@@ -29,6 +29,7 @@ export default function MainContent() {
           <Image
             src="/code-devices.svg"
             alt="Kode på enheter"
+            className={styles.devices}
             width={600}
             height={420}
             priority
