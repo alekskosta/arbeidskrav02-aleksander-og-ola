@@ -1,0 +1,40 @@
+import Link from "next/link";
+import Image from "next/image";
+import styles from "./MainContent.module.css";
+
+export default function MainContent() {
+  return (
+    <main className={styles.main}>
+      <section className={styles.grid}>
+        <div className={styles.left}>
+          <h1 className={styles.title}>
+            INTERESSERT I <span>FRONTEND?</span>
+          </h1>
+          <p className={styles.lead}>
+            The Web Wizard inneholder lettleste ressurser for deg som har lyst
+            til å komme i gang med frontend-utvikling. Du kan også ta vår quiz
+            for å teste forståelsen din.
+          </p>
+          <div className={styles.ctaRow}>
+            <Link href="/fagstoff" className={styles.btn}>
+              Fagstoff
+            </Link>
+            <Link href="/oppgaver" className={styles.btn}>
+              Quiz
+            </Link>
+          </div>
+        </div>
+
+        <div className={styles.right}>
+          <Image
+            src="/code-devices.svg"
+            alt="Kode på enheter"
+            width={600}
+            height={420}
+            priority
+          />
+        </div>
+      </section>
+    </main>
+  );
+}

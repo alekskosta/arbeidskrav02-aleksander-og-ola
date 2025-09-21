@@ -18,13 +18,3 @@ body {
 main {
   flex: 1;
 }
-
-header {
-  padding: 40px;
-  border-bottom: 1px solid black;
-}
-
-footer {
-  padding: 40px;
-  border-top: 1px solid black;
-}
