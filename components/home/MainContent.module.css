@@ -7,8 +7,17 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 56px;
+  row-gap: 48px;
+  column-gap: 54px;
   align-items: center;
+  padding: 20px;
+}
+
+.logoRow {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
 }
 
 .left,
@@ -58,5 +67,10 @@
     width: 100%;
     max-width: 600px;
     height: auto;
+  }
+
+  .logoRow {
+    padding: 0;
+    margin-bottom: 20px;
   }
 }

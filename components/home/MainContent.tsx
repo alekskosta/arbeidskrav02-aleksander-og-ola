@@ -1,11 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./MainContent.module.css";
+import Logo from "./Logo";
 
 export default function MainContent() {
   return (
     <main className={styles.main}>
       <section className={styles.grid}>
+        <div className={styles.logoRow}>
+          <Logo />
+        </div>
         <div className={styles.left}>
           <h1 className={styles.title}>
             INTERESSERT I <span>FRONTEND?</span>
