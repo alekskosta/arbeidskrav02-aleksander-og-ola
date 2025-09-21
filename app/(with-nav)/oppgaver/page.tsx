@@ -4,6 +4,7 @@ import QuestionCard from "@/components/quiz/QuizCard";
 import NavButtons from "@/components/quiz/NavButtons";
 import QuizSummary from "@/components/quiz/QuizSummary";
 import { useQuizController } from "@/hooks/useQuizController";
+import styles from "./page.module.css"
 
 export default function Quiz() {
   const {
@@ -25,7 +26,9 @@ export default function Quiz() {
 
   return (
     <main>
-      <h2>Oppgaver</h2>
+      <div className={styles.container}>
+      <h1 className={styles.mainHeading}>Test dine frontend-kunnskaper!</h1>
+      </div>
 
       {!showSummary ? (
         <>
