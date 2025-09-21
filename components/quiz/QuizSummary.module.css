@@ -46,18 +46,19 @@
 }
 
 .actions button {
-  background: var(--color-text-sec);
-  color: var(--color-bg-light);
-  font-weight: 400;
   padding: 0.75rem 1.5rem;
+  border-radius: 999px;
   border: none;
-  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: var(--color-btn-main);
+  color: var(--color-text);
+  border: 2px solid var(--color-bg-main);
 }
 
 .actions button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.03);
 }
