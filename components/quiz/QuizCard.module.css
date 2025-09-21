@@ -1,5 +1,5 @@
 .card {
-  background: #FFFFFF;
+  background: var(--color-bg-light);
   border-radius: 16px;
   padding: 24px;
   margin: 24px auto;
@@ -7,9 +7,8 @@
   box-shadow: 0 10px 28px rgba(0,0,0,0.18);
 }
 
-.card h3 {
+.card h2 {
   font-size: 1.35rem;
-  font-weight: 600;
   margin-bottom: 16px;
 }
 
