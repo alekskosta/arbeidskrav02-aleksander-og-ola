@@ -20,10 +20,10 @@ export default function MainContent() {
             for å teste forståelsen din.
           </p>
           <div className={styles.ctaRow}>
-            <Link href="/fagstoff" className={styles.btn}>
+            <Link href="/fagstoff" className={`${styles.btn} ${styles.btnMain}`}>
               Fagstoff
             </Link>
-            <Link href="/oppgaver" className={styles.btn}>
+            <Link href="/oppgaver" className={`${styles.btn} ${styles.btnSec}`}>
               Quiz
             </Link>
           </div>
