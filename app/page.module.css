@@ -1,20 +1,45 @@
-.mainHome {
-  padding: 40px;
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
 }
 
-.heroArticle {
-  display: flex;
-  flex-direction: column;
-  max-width: 350px;
-  gap: 10px;
+.pageRoot {
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;
 }
 
-.flexLinks {
-  display: flex;
-  gap: 4px;
+.pageBgRight {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100dvh;
+  width: auto;
+  z-index: -1;
+  pointer-events: none;
+  transform: scale(2);
+  margin-right: 250px;
+  max-width: 55vw;
 }
 
-.links {
-  background-color: aquamarine;
-  padding: 1rem;
+.pageContent {
+  position: relative;
+  /* z-index: 1; */
+}
+
+@media (max-width: 960px) {
+   .pageBgRight {
+    min-width: 900px;
+    position: fixed;
+    top: auto;           
+    bottom: 0;
+    right: 0;
+    left: -500;
+    display: block;
+    transform-origin: 50% 100%;
+    transform: translate(-50%, -20vh) rotate(90deg) scale(1.8);
+  }
 }

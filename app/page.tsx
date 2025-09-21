@@ -1,26 +1,18 @@
-import Link from "next/link";
-import "./globals.css";
 import styles from "./page.module.css";
+import MainContent from "@/components/home/MainContent"; // din main-komponent
 
-export default function Home() {
+export default function Page() {
   return (
-    <main className={styles.mainHome}>
-      <article className={styles.heroArticle}>
-        <h1>Tittel</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at
-          sapien vitae lorem faucibus pretium. Sed ut erat ac nunc dictum
-          aliquet.
-        </p>
-        <div className={styles.flexLinks}>
-          <Link href="/fagstoff" className={styles.links}>
-            Fagstoff
-          </Link>
-          <Link href="/oppgaver" className={styles.links}>
-            Oppgaver
-          </Link>
-        </div>
-      </article>
-    </main>
+    <div className={styles.pageRoot}>
+      <img
+        src="/green-bg.svg"
+        alt=""
+        aria-hidden
+        className={styles.pageBgRight}
+      />
+      <div className={styles.pageContent}>
+        <MainContent />
+      </div>
+    </div>
   );
 }
