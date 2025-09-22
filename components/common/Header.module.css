@@ -2,13 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
+  background-color: var(--color-bg-light);
   padding: 0.5rem 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-  flex-shrink: 0;
+  position: relative;
 }
 
 .nav ul {
@@ -21,7 +18,7 @@
 
 .nav a {
   text-decoration: none;
-  color: #3f6c63;
+  color: var(--color-text);
   font-weight: 500;
 }
 
@@ -29,7 +26,90 @@
   text-decoration: underline;
 }
 
-.active {
-    font-weight: 700;
-    text-decoration: underline;
+.menuButton {
+  display: none;
+  border: 0;
+  background: transparent;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.iconBurger,
+.iconClose {
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-bg-main);
+  position: relative;
+}
+.iconBurger::before,
+.iconBurger::after,
+.iconClose::before,
+.iconClose::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: var(--color-bg-main);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.iconBurger::before {
+  top: -7px;
+}
+.iconBurger::after {
+  top: 7px;
+}
+
+.iconClose {
+  background: transparent;
+}
+.iconClose::before {
+  transform: rotate(45deg);
+}
+.iconClose::after {
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 960px) {
+  .logoImg {
+    width: 280px;
+  }
+
+  .menuButton {
+    display: inline-block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1rem;
+    display: none;
+  }
+
+  .navOpen {
+    display: block;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.2rem;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+  }
+
+  .nav ul li {
+    border-bottom: var(--color-bg-main) solid 1px;
+  }
+
+  .nav a {
+    display: block;
+    padding: 0.5rem 0;
+  }
 }
