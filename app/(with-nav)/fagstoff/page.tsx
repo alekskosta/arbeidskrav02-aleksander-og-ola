@@ -15,9 +15,8 @@ export default function Fagstoff() {
   }
 
   return (
-    <main className="mainFront">
-      <h2>Fagstoff</h2>
-      <Link href="/">Home</Link>
+    <main className="main-cards">
+      <h1 className={styles.title}>Fagstoff</h1>
       <section className={styles.sectionGrid}>
         {dataInfo.map((tema) => (
           <CardBox

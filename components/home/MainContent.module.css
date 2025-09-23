@@ -69,7 +69,6 @@
   background-color: var(--color-btn-sec);
 }
 
-
 @media (max-width: 960px) {
   .grid {
     grid-template-columns: 1fr;
@@ -99,3 +98,18 @@
   }
 }
 
+@media (max-width: 450px) {
+  .grid {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 389px) {
+  .grid {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 1.9rem;
+  }
+}

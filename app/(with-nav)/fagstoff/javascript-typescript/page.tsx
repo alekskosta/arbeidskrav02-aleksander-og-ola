@@ -9,10 +9,12 @@ export const metadata = {
 
 export default function Javascript() {
   return (
-    <section className="section-component">
+    <section className="section-top">
       <article className="mainFront">
         <h2>JavaScript / TypeScript</h2>
-        <Link href="/fagstoff">Tilbake til Fagstoff</Link>
+        <Link href="/fagstoff" className="fagstoff-link-tilbake">
+          Tilbake til Fagstoff
+        </Link>
       </article>
       <JsTsSection />
     </section>

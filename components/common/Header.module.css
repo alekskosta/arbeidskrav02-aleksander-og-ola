@@ -94,6 +94,7 @@
 
   .navOpen {
     display: block;
+    z-index: 2;
   }
 
   .nav ul {

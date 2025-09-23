@@ -5,3 +5,13 @@
   padding: 40px 0px;
   width: 100%;
 }
+
+.title {
+  color: var(--color-btn-text-sec);
+}
+
+@media (max-width: 960px) {
+  .sectionGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}

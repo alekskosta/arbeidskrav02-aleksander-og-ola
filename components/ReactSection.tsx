@@ -27,9 +27,7 @@ export default function ReactSection() {
           )}
         </article>
       ))}
-      <hr></hr>
-      <h3>Interaktive Eksempler</h3>
-      <hr></hr>
+
       <article className="article-component">
         <h2>Button komponent</h2>
         <p>
