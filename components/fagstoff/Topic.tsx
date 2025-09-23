@@ -1,7 +1,14 @@
-import { showNextSection } from "@/data/info";
+type Section = {
+  id: number;
+  title: string;
+  text: string[];
+  code?: {
+    snippet: string;
+    caption?: string;
+  };
+};
 
-export default function NextJs() {
-  const data = showNextSection();
+export default function TopicView({ data }: { data: Section[] }) {
   return (
     <section className="section-component">
       {data.map((sec) => (

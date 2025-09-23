@@ -1,4 +1,5 @@
-import HtmlSection from "@/components/fagstoff/HtmlSection";
+import TopicView from "@/components/fagstoff/Topic";
+import { showHtmlSection } from "@/data/info";
 import Link from "next/link";
 
 export const metadata = {
@@ -7,6 +8,7 @@ export const metadata = {
 };
 
 export default function HtmlPage() {
+  const data = showHtmlSection();
   return (
     <section className="section-top">
       <article className="mainFront">
@@ -15,7 +17,7 @@ export default function HtmlPage() {
           Tilbake til Fagstoff
         </Link>
       </article>
-      <HtmlSection />
+      <TopicView data={data} />
     </section>
   );
 }

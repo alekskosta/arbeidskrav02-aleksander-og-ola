@@ -1,4 +1,5 @@
-import CssSection from "@/components/fagstoff/CssSection";
+import TopicView from "@/components/fagstoff/Topic";
+import { showCssSection } from "@/data/info";
 import Link from "next/link";
 
 export const metadata = {
@@ -8,6 +9,7 @@ export const metadata = {
 };
 
 export default function Css() {
+  const data = showCssSection();
   return (
     <section className="section-top">
       <article className="mainFront">
@@ -16,7 +18,7 @@ export default function Css() {
           Tilbake til Fagstoff
         </Link>
       </article>
-      <CssSection />
+      <TopicView data={data} />
     </section>
   );
 }

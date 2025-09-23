@@ -1,4 +1,5 @@
-import NextJs from "@/components/fagstoff/NextJs";
+import TopicView from "@/components/fagstoff/Topic";
+import { showNextSection } from "@/data/info";
 import Link from "next/link";
 
 export const metadata = {
@@ -6,7 +7,8 @@ export const metadata = {
   description: "Next.js er fullstack-rammeverket for React.",
 };
 
-export default function Nextjs() {
+export default function NextJs() {
+  const data = showNextSection();
   return (
     <section className="section-top">
       <article className="mainFront">
@@ -15,7 +17,7 @@ export default function Nextjs() {
           Tilbake til Fagstoff
         </Link>
       </article>
-      <NextJs />
+      <TopicView data={data} />
     </section>
   );
 }

@@ -1,4 +1,5 @@
-import JsTsSection from "@/components/fagstoff/JsTsSection";
+import TopicView from "@/components/fagstoff/Topic";
+import { showJsTsSection } from "@/data/info";
 import Link from "next/link";
 
 export const metadata = {
@@ -8,6 +9,7 @@ export const metadata = {
 };
 
 export default function Javascript() {
+  const data = showJsTsSection();
   return (
     <section className="section-top">
       <article className="mainFront">
@@ -16,7 +18,7 @@ export default function Javascript() {
           Tilbake til Fagstoff
         </Link>
       </article>
-      <JsTsSection />
+      <TopicView data={data} />
     </section>
   );
 }
