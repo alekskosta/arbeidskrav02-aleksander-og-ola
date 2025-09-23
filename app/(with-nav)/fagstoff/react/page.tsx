@@ -1,4 +1,4 @@
-import ReactSection from "@/components/ReactSection";
+import ReactSection from "@/components/fagstoff/ReactSection";
 import Link from "next/link";
 
 export const metadata = {

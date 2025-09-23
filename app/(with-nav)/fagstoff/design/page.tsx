@@ -1,4 +1,4 @@
-import DesignSection from "@/components/DesignSection";
+import DesignSection from "@/components/fagstoff/DesignSection";
 import Link from "next/link";
 
 export const metadata = {

@@ -1,4 +1,4 @@
-import CssSection from "@/components/CssSection";
+import CssSection from "@/components/fagstoff/CssSection";
 import Link from "next/link";
 
 export const metadata = {

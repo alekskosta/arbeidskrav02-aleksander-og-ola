@@ -1,4 +1,4 @@
-import JsTsSection from "@/components/JsTsSection";
+import JsTsSection from "@/components/fagstoff/JsTsSection";
 import Link from "next/link";
 
 export const metadata = {

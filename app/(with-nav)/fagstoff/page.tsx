@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { showInfo } from "@/data/info";
-import CardBox from "@/components/CardBox";
+import CardBox from "@/components/fagstoff/CardBox";
 import styles from "./page.module.css";
 import { useState } from "react";
 

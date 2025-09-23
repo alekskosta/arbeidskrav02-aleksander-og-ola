@@ -1,4 +1,4 @@
-import NextJs from "@/components/NextJs";
+import NextJs from "@/components/fagstoff/NextJs";
 import Link from "next/link";
 
 export const metadata = {

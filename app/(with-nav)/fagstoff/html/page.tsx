@@ -1,4 +1,4 @@
-import HtmlSection from "@/components/HtmlSection";
+import HtmlSection from "@/components/fagstoff/HtmlSection";
 import Link from "next/link";
 
 export const metadata = {
