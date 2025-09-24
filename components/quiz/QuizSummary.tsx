@@ -29,13 +29,13 @@ export default function QuizSummary({
       className={`${styles.summary} ${passed ? styles.passed : styles.failed}`}
     >
       <div className={styles.percent}>{percent}%</div>
-      <div className={styles.message}>
+      <h2 className={styles.message}>
         {percent === 100
           ? "Wow! Du har full kontroll!"
           : passed
           ? "Gratulerer, du har bestått!"
           : "Du har dessverre ikke bestått."}
-      </div>
+      </h2>
       <p className={styles.details}>
         Du fikk <strong>{correctCount}</strong> av <strong>{total}</strong>{" "}
         riktig
