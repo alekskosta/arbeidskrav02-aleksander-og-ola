@@ -2,40 +2,5 @@
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-.button {
-  padding: 0.75rem 1.5rem;
-  border-radius: 999px;
-  border: none;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.4s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-.button:hover:not(:disabled) {
-  transform: scale(1.03);
-}
-
-.button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-.prev {
-  background-color: var(--color-btn-sec);
-  color: var(--color-btn-text-sec);
-}
-
-.next {
-  background-color: var(--color-btn-main);
-  color: var(--color-btn-text);
-}
-
-.restart {
-  background-color: var(--color-bg-light);
-  color: var(--color-text);
-  border: 2px solid var(--color-btn-main);
+  margin: 2rem 0;
 }
