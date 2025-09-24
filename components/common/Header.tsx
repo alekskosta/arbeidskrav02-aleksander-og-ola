@@ -15,8 +15,8 @@ export default function Header() {
           <Image
             src="/web-wizard-logo.svg"
             alt="Web Wizard Logo"
-            width={300}
-            height={98}
+            width={280}
+            height={92}
             className={styles.logoImg}
           />
         </Link>
