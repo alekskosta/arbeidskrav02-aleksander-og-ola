@@ -14,9 +14,10 @@ type Props = {
 
 export default function QuestionCard({ title, questionId, options, onSelect, selectedOptionId, questionNumber }: Props) {
   return (
-     <section className={styles.card}>
-      <h2 className={styles.questionNumber}>Spørsmål {questionNumber}</h2>
+     <section className={styles.card}><div className={styles.headingContainer}>
+      <h2 className={styles.questionNumber}>Spørsmål {questionNumber}:</h2>
       <h2 className={styles.question}>{title}</h2>
+      </div>
       <div className={styles.options}>
         {options.map((opt) => (
           <label key={opt.id} className={styles.option}>
