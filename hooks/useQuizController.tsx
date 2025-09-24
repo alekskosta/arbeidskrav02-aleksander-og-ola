@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { questions } from "@/data/questions";
 import { useQuizStore } from "@/store/quizStore";
+import { getWrongQuestionIds } from "@/utils/getWrongQuestionIds";
 
 export function useQuizController() {
   const [index, setIndex] = useState(0);
@@ -11,6 +12,8 @@ export function useQuizController() {
   const answers = useQuizStore((s) => s.answers);
   const setAnswer = useQuizStore((s) => s.setAnswer);
   const reset = useQuizStore((s) => s.reset);
+
+  const wrongQuestionIds = getWrongQuestionIds(answers, questions);
 
   const total = questions.length;
   const lastIndex = total - 1;
@@ -52,6 +55,8 @@ export function useQuizController() {
   const percent = total === 0 ? 0 : Math.round((correctCount / total) * 100);
   const passed = percent >= 80;
 
+
+
   return {
     // state
     showSummary,
@@ -65,6 +70,7 @@ export function useQuizController() {
     total,
     percent,
     passed,
+    wrongQuestionIds,
     // handlers
     onSelect,
     onPrev,

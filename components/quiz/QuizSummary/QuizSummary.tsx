@@ -1,8 +1,7 @@
 "use client";
 
 import styles from "./QuizSummary.module.css";
-import { questions } from "@/data/questions";
-import { useQuizStore } from "@/store/quizStore";
+import WrongQuestionsList from "../WrongQuestionsList/WrongQuestionsList";
 
 type Props = {
   correctCount: number;
@@ -10,6 +9,7 @@ type Props = {
   percent: number;
   passed: boolean;
   onRestart: () => void;
+  wrongQuestionIds: string[];
 };
 
 export default function QuizSummary({
@@ -18,12 +18,9 @@ export default function QuizSummary({
   percent,
   passed,
   onRestart,
+  wrongQuestionIds
 }: Props) {
-  const { answers } = useQuizStore();
-
-  const wrongQuestions = questions.filter(
-    (q) => answers[q.id] !== q.correctOptionId
-  );
+  
   return (
     <section
       className={`${styles.summary} ${passed ? styles.passed : styles.failed}`}
@@ -40,15 +37,7 @@ export default function QuizSummary({
         Du fikk <strong>{correctCount}</strong> av <strong>{total}</strong>{" "}
         riktig
       </p>
-      {percent < 100 && (
-        <div className={styles.details}>
-          <h2>Vil du prøve igjen? Se nærmere på:</h2>
-          <ul>
-            {wrongQuestions.map((q) => (
-              <li key={q.id}>Spørsmål {q.id.replace("q", "")}</li>
-            ))}
-          </ul>
-        </div>
+      {percent < 100 && (<WrongQuestionsList ids={wrongQuestionIds} className={styles.details} />
       )}
 
       <div className={styles.actions}>

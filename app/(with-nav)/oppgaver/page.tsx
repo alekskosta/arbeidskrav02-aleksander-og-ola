@@ -1,8 +1,8 @@
 "use client";
 
-import QuestionCard from "@/components/quiz/QuizCard";
-import NavButtons from "@/components/quiz/NavButtons";
-import QuizSummary from "@/components/quiz/QuizSummary";
+import QuestionCard from "@/components/quiz/QuizCard/QuizCard";
+import NavButtons from "@/components/quiz/NavButtons/NavButtons";
+import QuizSummary from "@/components/quiz/QuizSummary/QuizSummary";
 import { useQuizController } from "@/hooks/useQuizController";
 import styles from "./page.module.css"
 
@@ -18,6 +18,7 @@ export default function Quiz() {
     total,
     percent,
     passed,
+    wrongQuestionIds,
     onSelect,
     onPrev,
     onNext,
@@ -56,6 +57,7 @@ export default function Quiz() {
           percent={percent}
           passed={passed}
           onRestart={onRestart}
+          wrongQuestionIds={wrongQuestionIds}
         />
       )}
     </main>
