@@ -19,6 +19,7 @@ export default function Quiz() {
     percent,
     passed,
     wrongQuestionIds,
+    currentQuestionNumber,
     onSelect,
     onPrev,
     onNext,
@@ -34,6 +35,7 @@ export default function Quiz() {
       {!showSummary ? (
         <>
           <QuestionCard
+            questionNumber={currentQuestionNumber}
             title={current.title}
             questionId={current.id}
             options={current.options}

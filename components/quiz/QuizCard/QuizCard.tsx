@@ -9,12 +9,14 @@ type Props = {
   options: Option[];
   onSelect: (optionId: string) => void;
   selectedOptionId?: string;
+  questionNumber: number;
 };
 
-export default function QuestionCard({ title, questionId, options, onSelect, selectedOptionId, }: Props) {
+export default function QuestionCard({ title, questionId, options, onSelect, selectedOptionId, questionNumber }: Props) {
   return (
      <section className={styles.card}>
-      <h2>{title}</h2>
+      <h2 className={styles.questionNumber}>Spørsmål {questionNumber}</h2>
+      <h2 className={styles.question}>{title}</h2>
       <div className={styles.options}>
         {options.map((opt) => (
           <label key={opt.id} className={styles.option}>

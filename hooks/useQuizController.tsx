@@ -14,6 +14,7 @@ export function useQuizController() {
   const reset = useQuizStore((s) => s.reset);
 
   const wrongQuestionIds = getWrongQuestionIds(answers, questions);
+  const currentQuestionNumber = index + 1;
 
   const total = questions.length;
   const lastIndex = total - 1;
@@ -71,6 +72,7 @@ export function useQuizController() {
     percent,
     passed,
     wrongQuestionIds,
+    currentQuestionNumber,
     // handlers
     onSelect,
     onPrev,
