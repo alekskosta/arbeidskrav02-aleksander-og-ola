@@ -5,7 +5,7 @@
 }
 
 .mainHeading {
-  color: #fff;
+  color: var(--color-bg-light);
   text-align: center;
 }
 
