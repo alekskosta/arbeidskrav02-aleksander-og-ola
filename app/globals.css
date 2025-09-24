@@ -102,6 +102,29 @@ h1 {
   overflow-x: auto;
 }
 
+.btn {
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--color-btn-text);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btnMain {
+  background-color: var(--color-btn-main);
+}
+
+.btnSec {
+  background-color: var(--color-btn-sec);
+}
+
 @media (max-width: 960px) {
   .mainFront,
   .article-component {

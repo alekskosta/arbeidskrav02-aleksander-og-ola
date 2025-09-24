@@ -19,11 +19,11 @@ export default function MainContent() {
             til å komme i gang med frontend-utvikling. Du kan også ta vår quiz
             for å teste forståelsen din.
           </p>
-          <div className={styles.ctaRow}>
-            <Link href="/fagstoff" className={`${styles.btn} ${styles.btnMain}`}>
+          <div className={styles.ctaContainer}>
+            <Link href="/fagstoff" className="btn btnMain">
               Fagstoff
             </Link>
-            <Link href="/oppgaver" className={`${styles.btn} ${styles.btnSec}`}>
+            <Link href="/oppgaver" className={"btn btnSec"}>
               Quiz
             </Link>
           </div>

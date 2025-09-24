@@ -40,13 +40,13 @@
   line-height: 1.8rem;
 }
 
-.ctaRow {
+.ctaContainer {
   display: flex;
   gap: 30px;
   flex-wrap: wrap;
 }
 
-.btn {
+/* .btn {
   padding: 12px 28px;
   border-radius: 25px;
   font-weight: 500;
@@ -67,7 +67,7 @@
 
 .btnSec {
   background-color: var(--color-btn-sec);
-}
+} */
 
 @media (max-width: 960px) {
   .grid {
