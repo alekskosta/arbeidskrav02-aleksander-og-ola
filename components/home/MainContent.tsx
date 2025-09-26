@@ -5,13 +5,13 @@ import Logo from "./Logo";
 
 export default function MainContent() {
   return (
-    <main className={styles.main}>
-      <section className={styles.grid}>
+    <section className={styles.hero} aria-labelledby="front-title">
+      <div className={styles.grid}>
         <div className={styles.logoRow}>
           <Logo />
         </div>
         <div className={styles.left}>
-          <h1 className={styles.title}>
+          <h1 className={styles.title} id="front-title">
             INTERESSERT I <span>FRONTEND?</span>
           </h1>
           <p className={styles.lead}>
@@ -20,7 +20,10 @@ export default function MainContent() {
             for å teste forståelsen din.
           </p>
           <div className={styles.ctaRow}>
-            <Link href="/fagstoff" className={`${styles.btn} ${styles.btnMain}`}>
+            <Link
+              href="/fagstoff"
+              className={`${styles.btn} ${styles.btnMain}`}
+            >
               Fagstoff
             </Link>
             <Link href="/oppgaver" className={`${styles.btn} ${styles.btnSec}`}>
@@ -39,7 +42,7 @@ export default function MainContent() {
             priority
           />
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }

@@ -14,6 +14,15 @@
 .card:focus {
   outline: 1px solid black;
 }
+
+.card:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px #3b82f6;
+}
+
+.card:focus-within {
+  box-shadow: 0 0 0 3px #3b82f6;
+}
 .active {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 }

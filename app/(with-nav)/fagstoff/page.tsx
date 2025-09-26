@@ -14,9 +14,12 @@ export default function Fagstoff() {
   }
 
   return (
-    <main className="main-cards">
-      <h1 className={styles.title}>Fagstoff</h1>
-      <section className={styles.sectionGrid}>
+    <section className="main-cards" aria-labelledby="fagstoff-title">
+      <h1 id="fagstoff-title" className={styles.title}>
+        Fagstoff
+      </h1>
+
+      <div className={styles.sectionGrid}>
         {dataInfo.map((tema) => (
           <CardBox
             key={tema.id}
@@ -28,7 +31,7 @@ export default function Fagstoff() {
             onToggle={handleToggle}
           />
         ))}
-      </section>
-    </main>
+      </div>
+    </section>
   );
 }
