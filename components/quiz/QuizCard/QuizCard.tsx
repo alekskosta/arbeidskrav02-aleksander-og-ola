@@ -1,7 +1,7 @@
 "use client";
 
 import type { Option } from "@/data/questions";
-import styles from "./QuizCard.module.css"
+import styles from "./QuizCard.module.css";
 
 type Props = {
   title: string;
@@ -12,11 +12,19 @@ type Props = {
   questionNumber: number;
 };
 
-export default function QuestionCard({ title, questionId, options, onSelect, selectedOptionId, questionNumber }: Props) {
+export default function QuestionCard({
+  title,
+  questionId,
+  options,
+  onSelect,
+  selectedOptionId,
+  questionNumber,
+}: Props) {
   return (
-     <section className={styles.card}><div className={styles.headingContainer}>
-      <h2 className={styles.questionNumber}>Spørsmål {questionNumber}:</h2>
-      <h2 className={styles.question}>{title}</h2>
+    <section className={styles.card}>
+      <div className={styles.headingContainer}>
+        <h2 className={styles.questionNumber}>Spørsmål {questionNumber}:</h2>
+        <p className={styles.question}>{title}</p>
       </div>
       <div className={styles.options}>
         {options.map((opt) => (

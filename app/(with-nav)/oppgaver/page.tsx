@@ -45,14 +45,16 @@ export default function Quiz() {
             onSelect={onSelect}
           />
 
-          <NavButtons
-            onPrev={onPrev}
-            onNext={onNext}
-            onRestart={onRestart}
-            isFirst={isFirst}
-            isLast={isLast}
-            canProceed={canProceed}
-          />
+          <nav aria-label="Spørsmålsnavigasjon">
+            <NavButtons
+              onPrev={onPrev}
+              onNext={onNext}
+              onRestart={onRestart}
+              isFirst={isFirst}
+              isLast={isLast}
+              canProceed={canProceed}
+            />
+          </nav>
         </>
       ) : (
         <QuizSummary
