@@ -21,20 +21,19 @@ body {
   z-index: -1;
   pointer-events: none;
   transform: scale(2);
-  margin-right: 250px;
+  margin-right: 15.625rem;
   max-width: 55vw;
 }
 
 .pageContent {
   position: relative;
-  /* z-index: 1; */
 }
 
 @media (max-width: 960px) {
-   .pageBgRight {
+  .pageBgRight {
     min-width: 900px;
     position: fixed;
-    top: auto;           
+    top: auto;
     bottom: 0;
     right: 0;
     left: -500;

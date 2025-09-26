@@ -1,7 +1,7 @@
 .summary {
   background: var(--color-bg-light);
   padding: 2.5rem;
-  border-radius: 16px;
+  border-radius: 1rem;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   text-align: center;
   max-width: 600px;

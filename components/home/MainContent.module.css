@@ -7,48 +7,48 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  row-gap: 48px;
-  column-gap: 90px;
+  row-gap: 3rem;
+  column-gap: 5.625rem;
   align-items: center;
-  padding: 20px;
+  padding: 1.25rem;
 }
 
 .logoRow {
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 1.25rem;
 }
 
 .left,
 .right {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .title {
-  margin: 0 0 12px;
+  margin: 0 0 0.75rem;
 }
 .title span {
   font-weight: 700;
 }
 
 .lead {
-  margin: 0 0 24px;
+  margin: 0 0 1.5rem;
   max-width: 55ch;
   line-height: 1.8rem;
 }
 
 .ctaRow {
   display: flex;
-  gap: 30px;
+  gap: 1.875rem;
   flex-wrap: wrap;
 }
 
 .btn {
-  padding: 12px 28px;
-  border-radius: 25px;
+  padding: 0.75rem 1.75rem;
+  border-radius: 1.562rem;
   font-weight: 500;
   text-decoration: none;
   color: var(--color-btn-text);
@@ -72,8 +72,8 @@
 @media (max-width: 960px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: 28px;
-    padding: 20px 50px;
+    gap: 1.75rem;
+    padding: 1.25rem 3.125rem;
   }
   .left,
   .right {
@@ -89,7 +89,7 @@
 
   .logoRow {
     padding: 0;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     display: flex;
     justify-content: center;
   }
@@ -100,13 +100,13 @@
 
 @media (max-width: 450px) {
   .grid {
-    padding: 20px;
+    padding: 1.25rem;
   }
 }
 
 @media (max-width: 389px) {
   .grid {
-    padding: 10px;
+    padding: 0.625rem;
   }
 
   .title {
