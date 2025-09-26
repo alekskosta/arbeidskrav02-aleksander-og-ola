@@ -1,4 +1,4 @@
-import TopicView from "@/components/fagstoff/Topic";
+import TopicView from "@/components/fagstoff//TopicComponent/Topic";
 import { showJsTsSection } from "@/data/info";
 import Link from "next/link";
 

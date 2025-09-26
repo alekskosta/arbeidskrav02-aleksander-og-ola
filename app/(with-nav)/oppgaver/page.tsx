@@ -4,7 +4,7 @@ import QuestionCard from "@/components/quiz/QuizCard/QuizCard";
 import NavButtons from "@/components/quiz/NavButtons/NavButtons";
 import QuizSummary from "@/components/quiz/QuizSummary/QuizSummary";
 import { useQuizController } from "@/hooks/useQuizController";
-import styles from "./page.module.css"
+import styles from "./page.module.css";
 
 export default function Quiz() {
   const {
@@ -27,9 +27,11 @@ export default function Quiz() {
   } = useQuizController();
 
   return (
-    <main>
+    <section aria-labelledby="quiz-title">
       <div className={styles.container}>
-      <h1 className={styles.mainHeading}>Test dine frontend-kunnskaper!</h1>
+        <h1 id="quiz-title" className={styles.mainHeading}>
+          Test dine frontend-kunnskaper!
+        </h1>
       </div>
 
       {!showSummary ? (
@@ -43,14 +45,16 @@ export default function Quiz() {
             onSelect={onSelect}
           />
 
-          <NavButtons
-            onPrev={onPrev}
-            onNext={onNext}
-            onRestart={onRestart}
-            isFirst={isFirst}
-            isLast={isLast}
-            canProceed={canProceed}
-          />
+          <nav aria-label="Spørsmålsnavigasjon">
+            <NavButtons
+              onPrev={onPrev}
+              onNext={onNext}
+              onRestart={onRestart}
+              isFirst={isFirst}
+              isLast={isLast}
+              canProceed={canProceed}
+            />
+          </nav>
         </>
       ) : (
         <QuizSummary
@@ -62,6 +66,6 @@ export default function Quiz() {
           wrongQuestionIds={wrongQuestionIds}
         />
       )}
-    </main>
+    </section>
   );
 }

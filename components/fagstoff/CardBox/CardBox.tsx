@@ -18,29 +18,43 @@ export default function CardBox({
   isOpen,
   onToggle,
 }: CardBoxProps) {
+  const panelId = `panel-${id}`;
+  const headingId = `heading-${id}`;
   return (
     <article
       role="button"
       tabIndex={0}
+      aria-labelledby={headingId}
       aria-expanded={isOpen}
-      aria-controls={`panel-${id}`}
+      aria-controls={panelId}
       className={`${styles.card} ${isOpen ? styles.active : ""}`}
       onClick={() => onToggle(id)}
       onKeyDown={(e) => {
+        if (e.currentTarget !== e.target) return;
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
           onToggle(id);
         }
       }}
     >
-      <h2 className={styles.title}>{title}</h2>
+      <h2 className={styles.title} id={headingId}>
+        {title}
+      </h2>
 
       <div
-        id={`panel-${id}`}
+        id={panelId}
+        role="region"
+        aria-labelledby={headingId}
+        hidden={!isOpen}
         className={`${styles.popover} ${isOpen ? styles.popoverOpen : ""}`}
       >
         <p className={styles.info}>{info}</p>
-        <Link className={styles.cta} href={href}>
+        <Link
+          className={styles.cta}
+          href={href}
+          onClick={(e) => e.stopPropagation()}
+          onKeyDown={(e) => e.stopPropagation()}
+        >
           Les mer her!
         </Link>
       </div>

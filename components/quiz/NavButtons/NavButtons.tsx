@@ -22,6 +22,7 @@ export default function NavButtons({
   return (
     <div className={styles.container}>
       <button
+        type="button"
         onClick={onPrev}
         disabled={isFirst}
         className={`${styles.button} ${styles.prev}`}
@@ -30,6 +31,7 @@ export default function NavButtons({
       </button>
 
       <button
+        type="button"
         onClick={onNext}
         disabled={!canProceed}
         className={`${styles.button} ${styles.next}`}
