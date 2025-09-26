@@ -1,7 +1,7 @@
-import ButtonComponent from "@/components/fagstoff/ReactEksempler/ButtonComponent";
-import ButtonComponentThree from "@/components/fagstoff/ReactEksempler/ButtonComponentThree";
-import ButtonComponentTwo from "@/components/fagstoff/ReactEksempler/ButtonComponentTwo";
-import TopicView from "@/components/fagstoff/Topic";
+import ButtonComponent from "@/components/fagstoff/ReactEksempler/ButtonComponents/ButtonComponent";
+import ButtonComponentThree from "@/components/fagstoff/ReactEksempler/ButtonComponents/ButtonComponentThree";
+import ButtonComponentTwo from "@/components/fagstoff/ReactEksempler/ButtonComponents/ButtonComponentTwo";
+import TopicView from "@/components/fagstoff/TopicComponent/Topic";
 import { showReactSection } from "@/data/info";
 import Link from "next/link";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { showInfo } from "@/data/info";
-import CardBox from "@/components/fagstoff/CardBox";
+import CardBox from "@/components/fagstoff/CardBox/CardBox";
 import styles from "./page.module.css";
 import { useState } from "react";
 
