@@ -21,29 +21,15 @@ export default function NavButtons({
 }: Props) {
   return (
     <div className={styles.container}>
-      <button
-        type="button"
-        onClick={onPrev}
-        disabled={isFirst}
-        className={`${styles.button} ${styles.prev}`}
-      >
+      <button type="button" onClick={onPrev} disabled={isFirst} className="btn btnSec">
         Forrige
       </button>
 
-      <button
-        type="button"
-        onClick={onNext}
-        disabled={!canProceed}
-        className={`${styles.button} ${styles.next}`}
-      >
+      <button type="button" onClick={onNext} disabled={!canProceed} className="btn btnMain">
         {isLast ? "Vis resultat" : "Neste"}
       </button>
 
-      <button
-        onClick={onRestart}
-        type="button"
-        className={`${styles.button} ${styles.restart}`}
-      >
+      <button onClick={onRestart} type="button" className="btn btnTertiary">
         Start på nytt
       </button>
     </div>

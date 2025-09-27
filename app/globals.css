@@ -102,6 +102,42 @@ h1 {
   overflow-x: auto;
 }
 
+.btn {
+  padding: 0.75rem 1.75rem;
+  border-radius: 25px;
+  text-decoration: none;
+  color: var(--color-btn-text);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  border: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btnMain {
+  background-color: var(--color-btn-main);
+}
+
+.btnSec {
+  background-color: var(--color-btn-sec);
+}
+
+.btnTertiary {
+  background-color: var(--color-bg-light);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 @media (max-width: 960px) {
   .mainFront,
   .article-component {
